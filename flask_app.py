@@ -1,6 +1,4 @@
 
-# A very simple Flask Hello World app for you to get started with...
-
 from flask import Flask, redirect, render_template, request, url_for, session
 from flask.ext.sqlalchemy import SQLAlchemy
 from random import shuffle, sample, choice
@@ -14,10 +12,10 @@ app.config["DEBUG"] = True
 
 ## Database conection
 SQLALCHEMY_DATABASE_URI = "mysql+mysqlconnector://{username}:{password}@{hostname}/{databasename}".format(
-    username="telmi2",
+    username="fortega",
     password="telmi2database",
-    hostname="telmi2.mysql.pythonanywhere-services.com",
-    databasename="telmi2$expressiveDynamics",
+    hostname="fortega.mysql.pythonanywhere-services.com",
+    databasename="fortega$expressiveDynamics",
 )
 app.config["SQLALCHEMY_DATABASE_URI"] = SQLALCHEMY_DATABASE_URI
 app.config["SQLALCHEMY_POOL_RECYCLE"] = 299
@@ -47,7 +45,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_name = db.Column(db.String(100))
     age = db.Column(db.Integer)
-    gender = db.Column(db.String(6))
+    gender = db.Column(db.String(11))
     nationality = db.Column(db.String(100))
     country = db.Column(db.String(100))
     instrument = db.Column(db.String(100))
@@ -180,15 +178,26 @@ def form():
     db.session.commit()
 
     ## create sound file list
-    soundFileList = ["01","02","03","04","05","06","07","08","09","10","11","12"]
-
-    combination = repeat([["a", "b"],["b", "c"]], 5, 0)
-    combination += repeat([["a", "c"]], 2, 0)
+    soundFileList = ["01","02","03","04","05","06","07","08"]
+    soundFileList = soundFileList + sample(soundFileList, 4)
+    combination = repeat([["a", "b"],["b", "c"]], 5, 0).tolist()
+    combination += repeat([["a", "c"]], 2, 0).tolist()
 
     # Randomize list
-    #listAppend = sample(soundFileList, 3)
     shuffle(soundFileList)
     shuffle(combination)
+
+    # make sure repeated audios don't use same combinations
+    aux = set()
+    for i in range(len(soundFileList)):
+        aux.add((soundFileList[i],combination[i]))
+    while len(aux) < len(soundFileList):
+        shuffle(soundFileList)
+        shuffle(combination)
+        aux = set()
+        for i in range(len(soundFileList)):
+            aux.add((soundFileList[i],combination[i]))
+
     session['soundList'] = soundFileList
     session['soundComb'] = combination
 
@@ -211,7 +220,7 @@ def id_generator(size=6, chars=ascii_uppercase + digits):
 
 ############ RESULTS ##########
 def run_query(query=''):
-    datos = ["telmi2.mysql.pythonanywhere-services.com", "telmi2", "telmi2database", "telmi2$expressiveDynamics"]
+    datos = ["fortega.mysql.pythonanywhere-services.com", "fortega", "telmi2database", "fortega$expressiveDynamics"]
 
     conn = DB.connect(*datos) # Conectar a la base de datos
     cursor = conn.cursor()         # Crear un cursor
