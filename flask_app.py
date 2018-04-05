@@ -35,7 +35,8 @@ class Answer(db.Model):
     sound_file_2 = db.Column(db.String(1))
 
     # answer
-    chosen = db.Column(db.Integer)
+    human = db.Column(db.Integer)
+    preferred = db.Column(db.Integer)
     distinction = db.Column(db.Integer)
 
 class User(db.Model):
@@ -121,7 +122,8 @@ def main_form():# define main func
 
     answer.sound_file_1 = combination[sound_idx][0]
     answer.sound_file_2 = combination[sound_idx][1]
-    answer.chosen = request.form["chosen"]
+    answer.human = request.form["human"]
+    answer.preferred = request.form["preferred"]
     answer.distinction = request.form["distinction"]
 
     db.session.add(answer)
@@ -189,14 +191,12 @@ def form():
 
     # make sure repeated audios don't use same combinations
     aux = set()
-    for i in range(len(soundFileList)):
-        aux.add((soundFileList[i],combination[i]))
+    aux.update(map(lambda i: (soundFileList[i],combination[i][0],combination[i][1]), range(len(soundFileList))))
     while len(aux) < len(soundFileList):
         shuffle(soundFileList)
         shuffle(combination)
         aux = set()
-        for i in range(len(soundFileList)):
-            aux.add((soundFileList[i],combination[i]))
+        aux.update(map(lambda i: (soundFileList[i],combination[i][0],combination[i][1]), range(len(soundFileList))))
 
     session['soundList'] = soundFileList
     session['soundComb'] = combination

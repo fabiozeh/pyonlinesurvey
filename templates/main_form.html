@@ -8,7 +8,7 @@
         <style>
             .checkboxgroup {
                 display: inline-block;
-                text-align: center;
+                /*text-align: center;*/
             }
             .checkboxgroup label {
                 display: block;
@@ -84,7 +84,7 @@
                     ma = {{ user.musical_activity }}
                 </div>
             {% endfor %}-->
-        <div class="title" style="background-color:#4eadb9">
+        <div class="title" style="background-color:#4eadb9; padding:5pt">
             <div class='container' style="color:#ffffff">
                 3. Perceptual evaluation
             </div>
@@ -98,7 +98,7 @@
 
             <div id="not_IE" style="display:none;">
                <div style="text-align:center">
-                    <audio src="/static/{{combList[sessionCount][0]}}/{{soundFile[sessionCount]}}.wav?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    <audio src="/static/{{combList[sessionCount][0]}}/{{soundList[sessionCount]}}.wav?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
                     Sample A ({{sessionCount +1}} of {{soundListLen}})<br>
                     <!--(Debug Mode)<br>
                     Sound File: {{soundFile}}<br>
@@ -106,56 +106,117 @@
                     {{soundList}}<br>
                     <strong><a href="{{ url_for('clearsession') }}">Clear session</a></strong>--> <!-- TODO: if clear session delete user information so far... warn the user-->
                 </div>
+                <br/>
                 <div style="text-align:center">
-                    <audio src="/static/{{combList[sessionCount][1]}}/{{soundFile[sessionCount]}}.wav?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    <audio src="/static/{{combList[sessionCount][1]}}/{{soundList[sessionCount]}}.wav?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
                     Sample B ({{sessionCount +1}} of {{soundListLen}})<br>
                 </div>
             </div>
             <div id="yes_IE" style="display:none;">
                 <div style="text-align:center">
                 <!-- load mp3 (copatible with IE)-->
-                    <audio src="/static/{{combList[sessionCount][0]}}/{{soundFile[sessionCount]}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    <audio src="/static/{{combList[sessionCount][0]}}/{{soundList[sessionCount]}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
                     Sample A ({{sessionCount +1}} of {{soundListLen}})<br>
                 </div>
                 <div style="text-align:center">
                 <!-- load mp3 (copatible with IE)-->
-                    <audio src="/static/{{combList[sessionCount][1]}}/{{soundFile[sessionCount]}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    <audio src="/static/{{combList[sessionCount][1]}}/{{soundList[sessionCount]}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
                     Sample B ({{sessionCount +1}} of {{soundListLen}})<br>
                     <font size="2" color="blue"><a onclick="return alert('If the audio doesn’t play, please open the survey in a Chrome or Firefox browser')">Sound not loading?</a></font>
                 </div>
             </div>
 
             <br><br>
-            <div class="row">
+            <div class="row"><div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
                 <form action=""{{ url_for('main_form') }}"" method="POST">
                     <input id="browser" type="hidden" name="browser_idx" ></p>
 
-                    <!-- Quan els audios funcionin, descomentar
-                    ############################################################################-->
-                    <filedset>
+                    <fieldset>
 
-                        <div style="text-align:center">
-
-                        <b>In terms of dynamics (the intensity of volume with which notes are expressed), select which audio
-                        clip sounds most like a human performance to you: </b><br>
-                        <div class="checkboxgroup"><label>- Sample A -</label><input type="radio" name="chosen" value="1" required/></div>
-                        <div class="checkboxgroup"><label>- Sample B -</label><input type="radio" name="chosen" value="2" required></div>
-                        <br>
-                        <b>How clearly do you perceive the distinction between the two audio clips? </b><br>
-                        I notice no distinction.
-                        <div class="checkboxgroup"><label>- 1 -</label><input type="radio" name="distinction" value="1" required/></div>
-                        <div class="checkboxgroup"><label>- 2 -</label><input type="radio" name="distinction" value="2" required></div>
-                        <div class="checkboxgroup"><label>- 3 -</label><input type="radio" name="distinction" value="3" required></div>
-                        <div class="checkboxgroup"><label>- 4 -</label><input type="radio" name="distinction" value="4" required></div>
-                        <div class="checkboxgroup"><label>- 5 -</label><input type="radio" name="distinction" value="5" required></div>
-                        <div class="checkboxgroup"><label>- 6 -</label><input type="radio" name="distinction" value="6" required></div>
-                        <div class="checkboxgroup"><label>- 7 -</label><input type="radio" name="distinction" value="7" required></div>
-                        <div class="checkboxgroup"><label>- 8 -</label><input type="radio" name="distinction" value="8" required></div>
-                        <div class="checkboxgroup"><label>- 9 -</label><input type="radio" name="distinction" value="9" required></div>
-                        <div class="checkboxgroup"><label>- 10 -</label><input type="radio" name="distinction" value="10" required></div>
-                        I notice a very clear distinction.
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>In terms of dynamics (the intensity of volume with which notes are expressed), select which audio
+                                clip sounds most like a human performance to you: </b>
+                            </div>
+                        </div><br/><div class="row">
+                            <div class="col-sm-6 text-center">
+                                <label> Sample A &nbsp;&nbsp;</label><input type="radio" name="human" value="1" required/>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <label> Sample B &nbsp;&nbsp;</label><input type="radio" name="human" value="2" required/>
+                            </div>
                         </div>
-                    </filedset>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>Which performance did you like best?</b>
+                            </div>
+                        </div><br/><div class="row">
+                            <div class="col-sm-6 text-center">
+                                <label> Sample A &nbsp;&nbsp;</label><input type="radio" name="preferred" value="1" required/>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <label> Sample B &nbsp;&nbsp;</label><input type="radio" name="preferred" value="2" required/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>How clearly do you perceive the distinction between the two audio clips? </b>
+                            </div>
+                        </div><br/>
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-12 text-center align-bottom">
+                                I notice no distinction.
+                            </div><div class="col-sm-4 col-xs-12 text-center">
+                                <div class="row hidden-sm hidden-md hidden-lg">
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="1" required/><label>&nbsp;1</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="2" required/><label>&nbsp;2</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="3" required/><label>&nbsp;3</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="4" required/><label>&nbsp;4</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="5" required/><label>&nbsp;5</label>
+                                    </div>
+                                </div>
+                                <div class="row hidden-xs">
+                                    <div class="col-sm-1 col-sm-offset-1">
+                                        <input type="radio" name="distinction" value="1" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="2" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="3" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="4" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="5" required/>
+                                    </div>
+                                </div>
+                                <div class="row hidden-xs">
+                                    <div class="col-sm-1 col-sm-offset-1">
+                                        <label>1</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>2</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>3</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>4</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>5</label>
+                                    </div>
+                                </div>
+                            </div><div class="col-sm-4 col-xs-12 text-center align-bottom">
+                                I notice a very clear distinction.
+                            </div>
+                        </div>
+                    </fieldset>
 
                     <br>
                     <br>
@@ -170,7 +231,7 @@
                     <br>
                 </form>
                 <!--<strong><a href="{{ url_for('clearsession') }}">Clear session</a></strong> (show on DEBUG mode)-->
-            </div>
+            </div></div>
         </div>
 
         <!-- this is to show the values in the data base for debugging-->
