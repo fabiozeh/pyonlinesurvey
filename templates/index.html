@@ -32,7 +32,7 @@
             </tbody>
         </table>
 
-        <div class="title" style="background-color:#4eadb9">
+        <div class="title" style="background-color:#4eadb9; padding:5pt">
             <div class='container' style="color:#ffffff">
                 1. Information
             </div>
@@ -53,43 +53,27 @@
                 <strong><a href="{{ url_for('clearsession') }}" onclick="return confirm('If you withdraw, any answers you have submitted on previous pages will be used. Are you sure to withdraw?')">Withdraw</a></strong>
             {% else %}<!-- if new user/session-->
 
-                This survey is part
-                of a project developing new technologies for learning musical instruments. Before you decide to take part, it is
-                important for you to understand why the research is being done and what it will involve. Please take time to read
-                the following information carefully and discuss it with others if you wish.<br>
-                <br>
-                <strong>What is the purpose of the project?</strong><br>
-                The aim of the research is to develop new technologies to help people learn music instruments. In this survey, we are
+                This experiment is part
+                of a project developing new technologies for learning musical instruments. In this survey, we are
                 interested in studying the impact of variations in dynamics (loudness) in the perception of musical expression. Our aim is to evaluate
                 our modeling in terms of its likeness to human performance.
+
                 <br>
-                <br>
-                <strong>Am I eligible?</strong><br>
-                Anyone aged 16 or older is invited to take part.<br>
                 <br>
                 <strong>Which are the listening requirements?</strong><br>
                 <font color='red'>
                 You will need a standard laptop/desktop computer with internet connection. For optimal audio quality <strong>we recommend
-                Chrome or Mozilla Firefox browsers</strong>. Inernet Explorer 10 or above is supported. <strong>Safari is not supported</strong>. We encourage
-                you to perform the test in a <b>quiet room</b> using <b>high quality headphones</b>.</font><br>
+                Chrome or Mozilla Firefox browsers</strong>. Internet Explorer 10 or above is supported. <strong>Safari is not supported</strong>.
+                We encourage you to perform the test in a <b>quiet room</b> using <b>high quality headphones</b>.</font>
                 <br>
-                <strong>Do I have to take part?</strong><br>
-                It is up to you to decide whether or not to take part. If you decide to do so, by beginning this survey you are
-                providing your informed consent. You will still be free to withdraw at any time without giving a reason. If
-                you withdraw any answers you have submitted on previous pages will be used. If you would like your data removed from
-                the project please contact the researchers below. <br>
+
                 <br>
-                <strong>How long will the survey take?</strong><br>
-                The survey should take approximately 30 minutes to complete.  <br>
-                <br>
-                <strong>Will my taking part in this project be kept confidential?</strong><br>
-                Yes. All responses will be anonymised, and your participation in the survey will not be made public in any way. <br>
-                <br>
-                <strong>What will happen to the results of the research project?</strong>
-                <br>The data will be presented at national and international conferences as well as published in academic journals. All information about
-                participants will remain anonymous. Collected data may be used for subsequent research. If you are interested to learn
-                more about the results please contact the research team below.<br>
-                <br>
+                In the following pages you will be asked to listen to computer generated audio samples and compare them according to your perception of
+                how well they approximate a human rendition.
+                The survey should take approximately 30 minutes to complete. Below you can find more details regarding our data usage policy. For any
+                questions, feel free to contact the researchers.
+
+                <br><br>
                 <strong>Thank you for taking part in this project!</strong><br>
                 <br>
                 <strong>Contacts:</strong><br>
@@ -103,6 +87,15 @@
                     </form>
                 </div>
                 <br style= "background-color:#4eadb9"></br>
+
+                <strong>Note on Participation and Data Usage</strong><br>
+
+                Participation in this survey is voluntary and open to anyone aged 16 or older. All responses will be anonymised, and the data
+                collected will be presented at national and international conferences as well as published in academic journals, and may be used
+                for subsequent research. If you decide to take part, by beginning
+                this survey you are providing your informed consent. You will still be free to withdraw at any time. If you are interested to learn
+                more about the results or if you would like your data removed from the project please contact the researchers. <br><br>
+
                 <!--<button href="{{ url_for('form') }}"><strong>Start Survey</strong></button><br/> -->
             {% endif %}
             </div><!--content-->

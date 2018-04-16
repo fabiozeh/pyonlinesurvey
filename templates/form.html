@@ -32,9 +32,9 @@
             </tbody>
         </table>
 
-        <div class="title" style="background-color:#4eadb9">
+        <div class="title" style="background-color:#4eadb9; padding:5pt">
             <div class='container' style="color:#ffffff">
-                1. User information
+                2. User information
             </div>
         </div>
         <div class='container'>
@@ -45,14 +45,14 @@
             </div>
             <div class="row">
                 <form action=""{{ url_for('form') }}"" method="POST">
-                    <label for="age">1. Age: </label><input type="number" name="age" min="16" max="100" required/><br />
-                    <label for="sex">2. Gender: </label><br>
-                    <div class = "container">
-                        <label><input type="radio" name="gender" value="m" required/> Male</label><br>
-                        <label><input type="radio" name="gender" value="f" required/> Female</label><br />
-                        <label><input type="radio" name="gender" value="u" required/> Unspecified</label><br />
-                    </div>
-                    <label for="nationality">3. Nationality: </label>
+                    <label for="age">1. Age: </label>&nbsp;&nbsp;<input type="number" name="age" min="16" max="100" required/><br />
+                    <label for="sex">2. Gender: </label>&nbsp;&nbsp;
+                    <select name="gender" required>
+                        <option value="m">Male</option>
+                        <option value="f">Female</option>
+                        <option value="u">Unspecified</option>
+                    </select><br/>
+                    <label for="nationality">3. Nationality: </label>&nbsp;&nbsp;
                         <select name="nationality" required>
                             <option value="">Country...</option>
                             <option value="Afganistan">Afghanistan</option>
@@ -303,7 +303,7 @@
                             <option value="Zambia">Zambia</option>
                             <option value="Zimbabwe">Zimbabwe</option>
                         </select><br />
-                    <label for="country">4. Country of residence: </label>
+                    <label for="country">4. Country of residence: </label>&nbsp;&nbsp;
                         <select name="country">
                             <option value="">Country...</option>
                             <option value="Afganistan">Afghanistan</option>
@@ -554,19 +554,20 @@
                             <option value="Zambia">Zambia</option>
                             <option value="Zimbabwe">Zimbabwe</option>
                         </select><br />
-                    <label for="instrument">5. What is your principal instrument?</label>
+                    <label for="instrument">5. What is your principal instrument?</label>&nbsp;&nbsp;
                         <select name="instrument" required>
                             <option value="">Choose one...</option>
                             <option value="none">I don't play any instrument</option>
+                            <option value="accordion">Accordion</option>
                             <option value="bass_electric">Bass (electric)</option>
                             <option value="bassoon">Bassoon</option>
                             <option value="cello">Cello</option>
                             <option value="clarinet">Clarinet</option>
                             <option value="double bass">Double bass</option>
                             <option value="drumset">Drum set</option>
-                            <option value="euphonium">Euphorioum</option>
+                            <option value="euphonium">Euphonium</option>
                             <option value="flute">Flute</option>
-                            <option value="guitar_acousitc">Guitar (acoustic)</option>
+                            <option value="guitar_acoustic">Guitar (acoustic)</option>
                             <option value="guitar_electric">Guitar (electric)</option>
                             <option value="harmonica">Harmonica</option>
                             <option value="harp">Harp</option>
@@ -589,13 +590,13 @@
                             <option value="other">Other</option>
                             <!-- TODO: option other (specify).... -->
                         </select><br />
-                    <label for="years_study">6. For how many years have you studied this instrument? </label><input type="number" name="years_study" min="0" max="100" required/><br />
-                    <label for="hours_practice">7. For approximately how many hours do you practice on a typical day? </label><input type="number" name="hours_practice" min="0" max="24" required/><br />
+                    <label for="years_study">6. For how many years have you studied this instrument? </label>&nbsp;&nbsp;<input type="number" name="years_study" min="0" max="100" required/><br />
+                    <label for="hours_practice">7. For approximately how many hours do you practice on a typical day? </label>&nbsp;&nbsp;<input type="number" name="hours_practice" min="0" max="24" required/><br />
                     <label for="one_to_one_lessons">8. Have you taken one-to-one lessons on your primary instrument?:</label><br>
                     <div class = "container">
                         <label><input type="radio" name="one_to_one_lessons" value="y" required/> Yes</label><br>
                         <label><input type="radio" name="one_to_one_lessons" value="n" required/> No</label><br />
-                        <label for="if_lessons_years">If yes, how many years? If no, please enter "0" </label><input type="number" name="if_lessons_years" min="0" max="100" required/><br />
+                        <label for="if_lessons_years">If yes, how many years? If no, please enter "0" </label>&nbsp;&nbsp;<input type="number" name="if_lessons_years" min="0" max="100" required/><br />
                     </div>
                     <label for="musical_genre">9. What is your primary musical genre? </label><br>
                     <div class = "container">
@@ -625,7 +626,9 @@
                     </div>
 
                     <br>
-                    <label for="telmi_code">Telmi code: </label><input type="password" name="telmi_code" /> (Only for TELMI staff, please leave this field blank) <br />                    <label for="user_name"></label><input type="hidden" name="user_name" value="telmi_usr_"/><br />
+                    <!-- <label for="telmi_code">Telmi code: </label><input type="password" name="telmi_code" /> (Only for TELMI staff, please leave this field blank) <br /> -->
+
+                    <label for="user_name"></label><input type="hidden" name="user_name" value="telmi_usr_"/><br />
 
                     <br>
                     <input type="submit" class="btn btn-success" style="background-color:#4eadb9" value="Next">

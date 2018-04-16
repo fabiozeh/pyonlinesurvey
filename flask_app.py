@@ -198,6 +198,9 @@ def form():
         aux = set()
         aux.update(map(lambda i: (soundFileList[i],combination[i][0],combination[i][1]), range(len(soundFileList))))
 
+    # randomize sample presentation order
+    map(shuffle, combination)
+
     session['soundList'] = soundFileList
     session['soundComb'] = combination
 
