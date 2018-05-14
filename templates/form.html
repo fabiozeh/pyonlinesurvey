@@ -24,7 +24,7 @@
                     <td class="survey-title-cell">
                         <h1 class="survey-title user-generated notranslate">
                             <span class="title-text">
-                                Dynamics Expressivity Perception Survey
+                                Survey for Perceptual Evaluation of Expressive Dynamics
                             </span>
                         </h1>
                     </td>
@@ -48,9 +48,9 @@
                     <label for="age">1. Age: </label>&nbsp;&nbsp;<input type="number" name="age" min="16" max="100" required/><br />
                     <label for="sex">2. Gender: </label>&nbsp;&nbsp;
                     <select name="gender" required>
+                        <option value="u">Unspecified</option>
                         <option value="m">Male</option>
                         <option value="f">Female</option>
-                        <option value="u">Unspecified</option>
                     </select><br/>
                     <label for="nationality">3. Nationality: </label>&nbsp;&nbsp;
                         <select name="nationality" required>
@@ -594,42 +594,37 @@
                     <label for="hours_practice">7. For approximately how many hours do you practice on a typical day? </label>&nbsp;&nbsp;<input type="number" name="hours_practice" min="0" max="24" required/><br />
                     <label for="one_to_one_lessons">8. Have you taken one-to-one lessons on your primary instrument?:</label><br>
                     <div class = "container">
-                        <label><input type="radio" name="one_to_one_lessons" value="y" required/> Yes</label><br>
-                        <label><input type="radio" name="one_to_one_lessons" value="n" required/> No</label><br />
+                        <label><input type="radio" name="one_to_one_lessons" value="y" required/>&nbsp;&nbsp;Yes</label><br>
+                        <label><input type="radio" name="one_to_one_lessons" value="n" required/>&nbsp;&nbsp;No</label><br />
                         <label for="if_lessons_years">If yes, how many years? If no, please enter "0" </label>&nbsp;&nbsp;<input type="number" name="if_lessons_years" min="0" max="100" required/><br />
                     </div>
                     <label for="musical_genre">9. What is your primary musical genre? </label><br>
                     <div class = "container">
-                        <label><input type="radio" name="musical_genre" value="classical" required/> Classical</label><br>
-                        <label><input type="radio" name="musical_genre" value="jazz" required/> Jazz</label><br />
-                        <label><input type="radio" name="musical_genre" value="pop" required/> Pop</label><br>
-                        <label><input type="radio" name="musical_genre" value="rock" required/> Rock</label><br />
-                        <label><input type="radio" name="musical_genre" value="electronic" required/> Dance/Electronic</label><br>
-                        <label><input type="radio" name="musical_genre" value="rap" required/> Rap/Hip-Hop</label><br>
-                        <label><input type="radio" name="musical_genre" value="traditional" required/> Traditional/Folk</label><br>
-                        <label><input type="radio" name="musical_genre" value="other" required/> Other</label><br />
+                        <label><input type="radio" name="musical_genre" value="classical" required/>&nbsp;&nbsp;Classical</label><br>
+                        <label><input type="radio" name="musical_genre" value="jazz" required/>&nbsp;&nbsp;Jazz</label><br />
+                        <label><input type="radio" name="musical_genre" value="pop" required/>&nbsp;&nbsp;Pop</label><br>
+                        <label><input type="radio" name="musical_genre" value="rock" required/>&nbsp;&nbsp;Rock</label><br />
+                        <label><input type="radio" name="musical_genre" value="electronic" required/>&nbsp;&nbsp;Dance/Electronic</label><br>
+                        <label><input type="radio" name="musical_genre" value="rap" required/>&nbsp;&nbsp;Rap/Hip-Hop</label><br>
+                        <label><input type="radio" name="musical_genre" value="traditional" required/>&nbsp;&nbsp;Traditional/Folk</label><br>
+                        <label><input type="radio" name="musical_genre" value="other" required/>&nbsp;&nbsp;Other</label><br />
                     </div>
                     <label for="musical_activity">10. Which option best describes your musical activity?</label><br>
                     <div class = "container">
-                        <label><input type="radio" name="musical_activity" value="amateur" required/> Amateur</label><br>
-                        <label><input type="radio" name="musical_activity" value="student_school" required/> Student: secondary school</label><br />
-                        <label><input type="radio" name="musical_activity" value="student_undergrad" required/> Student: undergraduate</label><br>
-                        <label><input type="radio" name="musical_activity" value="student_postgrad" required/> Student: postgraduate</label><br />
-                        <label><input type="radio" name="musical_activity" value="professional" required/> Professional</label><br>
+                        <label><input type="radio" name="musical_activity" value="amateur" required/>&nbsp;&nbsp;Amateur</label><br>
+                        <label><input type="radio" name="musical_activity" value="student_school" required/>&nbsp;&nbsp;Student: secondary school</label><br />
+                        <label><input type="radio" name="musical_activity" value="student_undergrad" required/>&nbsp;&nbsp;Student: undergraduate</label><br>
+                        <label><input type="radio" name="musical_activity" value="student_postgrad" required/>&nbsp;&nbsp;Student: postgraduate</label><br />
+                        <label><input type="radio" name="musical_activity" value="professional" required/>&nbsp;&nbsp;Professional</label><br>
                     </div>
                     <label for="headphones">11. Which type of headphones/speakers will you be using?</label><br>
                     <div class = "container">
-                        <label><input type="radio" name="headphones" value="good_hp" required/>Good quality headphones</label><br>
-                        <label><input type="radio" name="headphones" value="low_hp" required/>Low quality headphones</label><br/>
-                        <label><input type="radio" name="headphones" value="good_spk" required/>Good quality speakers</label><br>
-                        <label><input type="radio" name="headphones" value="low_spk" required/>Low quality speakers</label><br />
+                        <label><input type="radio" name="headphones" value="good_hp" required/>&nbsp;&nbsp;Good quality headphones</label><br>
+                        <label><input type="radio" name="headphones" value="low_hp" required/>&nbsp;&nbsp;Low quality headphones</label><br/>
+                        <label><input type="radio" name="headphones" value="good_spk" required/>&nbsp;&nbsp;Good quality speakers</label><br>
+                        <label><input type="radio" name="headphones" value="low_spk" required/>&nbsp;&nbsp;Low quality speakers</label><br />
                     </div>
-
-                    <br>
-                    <!-- <label for="telmi_code">Telmi code: </label><input type="password" name="telmi_code" /> (Only for TELMI staff, please leave this field blank) <br /> -->
-
-                    <label for="user_name"></label><input type="hidden" name="user_name" value="telmi_usr_"/><br />
-
+                    <input type="hidden" name="user_name" value="telmi_usr_"/>
                     <br>
                     <input type="submit" class="btn btn-success" style="background-color:#4eadb9" value="Next">
                 </form>

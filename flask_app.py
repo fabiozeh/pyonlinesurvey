@@ -38,6 +38,7 @@ class Answer(db.Model):
     human = db.Column(db.Integer)
     preferred = db.Column(db.Integer)
     distinction = db.Column(db.Integer)
+    comment = db.Column(db.String(500))
 
 class User(db.Model):
 
@@ -57,7 +58,6 @@ class User(db.Model):
     musical_genre = db.Column(db.String(100))
     musical_activity = db.Column(db.String(100))
     headphones = db.Column(db.String(100))
-    telmi_code = db.Column(db.String(10))
     ## add time to answer and comments in the last page
     ## comments = db.Column(db.String(300)) ##300 characters... enough?
     ## time = db.Column(db.Integer) ## in minutes
@@ -125,6 +125,7 @@ def main_form():# define main func
     answer.human = request.form["human"]
     answer.preferred = request.form["preferred"]
     answer.distinction = request.form["distinction"]
+    answer.comment = request.form["comment"]
 
     db.session.add(answer)
     db.session.commit()
@@ -174,7 +175,6 @@ def form():
     user.musical_genre = request.form["musical_genre"]
     user.musical_activity = request.form["musical_activity"]
     user.headphones = request.form["headphones"]
-    user.telmi_code = request.form["telmi_code"]
 
     db.session.add(user)
     db.session.commit()
