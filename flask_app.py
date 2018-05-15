@@ -180,29 +180,22 @@ def form():
     db.session.commit()
 
     ## create sound file list
-    soundFileList = ["01","02","03","04","05","06","07","08"]
-    soundFileList = soundFileList + sample(soundFileList, 4)
-    combination = repeat([["a", "b"],["b", "c"]], 5, 0).tolist()
-    combination += repeat([["a", "c"]], 2, 0).tolist()
+    soundFileList = ["1","2","3","4","5","6","7","8"]
 
-    # Randomize list
-    shuffle(soundFileList)
-    shuffle(combination)
+    # determine sample pairs and section for each sample song
+    outl = []
+    for x in soundFileList:
+        aux = [("a", "b"), ("b", "c"), ("c", "a")]
+        shuffle(aux)
+        # randomize sample presentation order
+        map(shuffle, aux)
+        outl.append((x+"1", aux[0][0], aux[0][1]))
+        outl.append((x+"2", aux[1][0], aux[1][1]))
+        outl.append((x+"3", aux[2][0], aux[2][1]))
 
-    # make sure repeated audios don't use same combinations
-    aux = set()
-    aux.update(map(lambda i: (soundFileList[i],combination[i][0],combination[i][1]), range(len(soundFileList))))
-    while len(aux) < len(soundFileList):
-        shuffle(soundFileList)
-        shuffle(combination)
-        aux = set()
-        aux.update(map(lambda i: (soundFileList[i],combination[i][0],combination[i][1]), range(len(soundFileList))))
-
-    # randomize sample presentation order
-    map(shuffle, combination)
-
-    session['soundList'] = soundFileList
-    session['soundComb'] = combination
+    shuffle(outl)
+    session['soundList'] = map(lambda x: x[0], outl)
+    session['soundComb'] = map(lambda x: (x[1], x[2]), outl)
 
    # And then redirect the user to the main form
     return redirect(url_for('main_form')) #main_form
