@@ -185,7 +185,7 @@ def form():
     # determine sample pairs and section for each sample song
     outl = []
     for x in soundFileList:
-        aux = [("a", "b"), ("b", "c"), ("c", "a")]
+        aux = [["a", "b"], ["b", "c"], ["c", "a"]]
         shuffle(aux)
         # randomize sample presentation order
         map(shuffle, aux)
