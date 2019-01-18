@@ -180,7 +180,7 @@ def form():
     db.session.commit()
 
     ## create sound file list
-    soundFileList = ["12","13","21","23","31","33","51","61","71"]
+    soundFileList = ["12","13","21","31","33","63","73","93"]
     soundFileList = soundFileList + soundFileList
     combination = repeat([["a", "b"],["b", "c"],["a", "c"]], 6, 0).tolist()
 
