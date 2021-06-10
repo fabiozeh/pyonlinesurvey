@@ -1,0 +1,284 @@
+<html>
+    <head>
+        <title>Performance Expressivity Survey</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        <style>
+            .checkboxgroup {
+                display: inline-block;
+                /*text-align: center;*/
+            }
+            .checkboxgroup label {
+                display: block;
+            }
+
+            table.tab1 {
+            font-size: 1em;
+            }
+
+        }
+        </style>
+
+        <script>
+
+            function myFunction() {
+
+                //document.getElementById('not_IE').style.display='none'
+                //document.getElementById('yes_IE').style.display='none'
+            if((navigator.userAgent.indexOf("MSIE") != -1 ) || (!!document.documentMode == true )) //IF IE > 10
+            {
+              document.getElementById('yes_IE').style.display='block'
+              document.getElementById("browser").value = "1"
+            }
+            else
+            {
+                document.getElementById('not_IE').style.display='block'
+                document.getElementById("browser").value = "0";
+            }
+            }
+        </script>
+
+    </head>
+
+    <body onload="myFunction()">
+
+    <div class= "container">
+         <table role="presentation" class="survey-title-table table-reset">
+            <tbody>
+                <tr>
+                    <td class="logo-cell">
+                        <span class="logo-container notranslate" style="width:300px;height:239px;">
+                            <img class="logo user-generated"
+                            src="//surveymonkey-assets.s3.amazonaws.com/survey/76671199/07154770-f9d9-4980-9e8c-9ebd0fbe8def.png"
+                            style="width:300px;height:239px;"
+                            alt="" />
+                        </span>
+                    </td>
+                    <td class="survey-title-cell">
+                        <h1 class="survey-title user-generated notranslate">
+                            <span class="title-text">
+                                Survey for Perceptual Evaluation of Expression in Performance
+                            </span>
+                        </h1>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            <!--(DEBUG mode) User database output:
+            {% for user in users %}
+                <div class="row">
+                    id = {{ user.id }}
+                    un={{ user.user_name }}
+                    age={{ user.age }}
+                    sex={{ user.sex }}
+                    nat={{ user.nationality }}
+                    cou={{ user.country }}
+                    inst={{ user.instrument }}
+                    ys = {{ user.years_study }}
+                    hp = {{ user.hours_practice }}
+                    121l = {{ user.one_to_one_lessons }}
+                    y = {{ user.if_lessons_years }}
+                    mg = {{ user.musical_genre }}
+                    ma = {{ user.musical_activity }}
+                </div>
+            {% endfor %}-->
+        <div class="title" style="background-color:#4eadb9; padding:5pt">
+            <div class='container' style="color:#ffffff">
+                3. Perceptual evaluation
+            </div>
+        </div>
+        <div class='container'>
+            <div class="row">
+                <br>
+                <font size="4">Please listen to both audio samples below:</font>
+                <br><br>
+            </div>
+
+            <div id="not_IE" style="display:none;">
+               <div style="text-align:center">
+                    <audio src="/static/{{combList[sessionCount][0]}}/{{soundList[sessionCount]}}.wav?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    Sample A ({{sessionCount +1}} of {{soundListLen}})<br>
+                    <!--(Debug Mode)<br>
+                    Sound File: {{soundFile}}<br>
+
+                    {{soundList}}<br>
+                    <strong><a href="{{ url_for('clearsession') }}">Clear session</a></strong>--> <!-- TODO: if clear session delete user information so far... warn the user-->
+                </div>
+                <br/>
+                <div style="text-align:center">
+                    <audio src="/static/{{combList[sessionCount][1]}}/{{soundList[sessionCount]}}.wav?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    Sample B ({{sessionCount +1}} of {{soundListLen}})<br>
+                </div>
+            </div>
+            <div id="yes_IE" style="display:none;">
+                <div style="text-align:center">
+                <!-- load mp3 (copatible with IE)-->
+                    <audio src="/static/{{combList[sessionCount][0]}}/{{soundList[sessionCount]}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    Sample A ({{sessionCount +1}} of {{soundListLen}})<br>
+                </div>
+                <div style="text-align:center">
+                <!-- load mp3 (copatible with IE)-->
+                    <audio src="/static/{{combList[sessionCount][1]}}/{{soundList[sessionCount]}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
+                    Sample B ({{sessionCount +1}} of {{soundListLen}})<br>
+                    <font size="2" color="blue"><a onclick="return alert('If the audio doesn’t play, please open the survey in a Chrome or Firefox browser')">Sound not loading?</a></font>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="row"><div class="col-sm-8 col-sm-offset-2 col-xs-12 col-xs-offset-0">
+                <form action=""{{ url_for('main_form') }}"" method="POST">
+                    <input id="browser" type="hidden" name="browser_idx" ></p>
+
+                    <fieldset>
+
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>In terms of dynamics (the intensity of volume with which notes are expressed) and timing variations
+                                (rushing or dragging notes), select which audio
+                                sample sounds most like a human performance to you: </b>
+                            </div>
+                        </div><br/><div class="row">
+                            <div class="col-sm-6 text-center">
+                                <label> Sample A &nbsp;&nbsp;</label><input type="radio" name="human" value="1" required/>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <label> Sample B &nbsp;&nbsp;</label><input type="radio" name="human" value="2" required/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>Which performance did you like best?</b>
+                            </div>
+                        </div><br/><div class="row">
+                            <div class="col-sm-6 text-center">
+                                <label> Sample A &nbsp;&nbsp;</label><input type="radio" name="preferred" value="1" required/>
+                            </div>
+                            <div class="col-sm-6 text-center">
+                                <label> Sample B &nbsp;&nbsp;</label><input type="radio" name="preferred" value="2" required/>
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>How clearly do you perceive the distinction between the two audio samples? </b>
+                            </div>
+                        </div><br/>
+                        <div class="row">
+                            <div class="col-sm-4 col-xs-12 text-center align-bottom">
+                                I notice no distinction.
+                            </div><div class="col-sm-4 col-xs-12 text-center">
+                                <div class="row hidden-sm hidden-md hidden-lg">
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="1" required/><label>&nbsp;1</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="2" required/><label>&nbsp;2</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="3" required/><label>&nbsp;3</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="4" required/><label>&nbsp;4</label>
+                                    </div>
+                                    <div class="col-xs-12 text-center">
+                                        <input type="radio" name="distinction" value="5" required/><label>&nbsp;5</label>
+                                    </div>
+                                </div>
+                                <div class="row hidden-xs">
+                                    <div class="col-sm-1 col-sm-offset-1">
+                                        <input type="radio" name="distinction" value="1" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="2" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="3" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="4" required/>
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <input type="radio" name="distinction" value="5" required/>
+                                    </div>
+                                </div>
+                                <div class="row hidden-xs">
+                                    <div class="col-sm-1 col-sm-offset-1">
+                                        <label>1</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>2</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>3</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>4</label>
+                                    </div><div class="col-sm-1 col-xs-12"><label>5</label>
+                                    </div>
+                                </div>
+                            </div><div class="col-sm-4 col-xs-12 text-center align-bottom">
+                                I notice a very clear distinction.
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <b>Comment (optional)</b>
+                            </div>
+                        </div><br/>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <textarea rows="4" style="width:100%" name="comment" maxlength="500"></textarea>
+                            </div>
+                        </div><br/>
+                    </fieldset>
+
+                    <br>
+                    <br>
+                    <div style="text-align:center">
+                    <input type="submit" class="btn btn-success" style="background-color:#4eadb9" value="Post rating"></div>
+                    <br>
+                    <br>
+                    <div style="text-align:right">
+                    <strong><a href="{{ url_for('clearsession') }}" onclick="return confirm('If you withdraw, any answers you have submitted on previous pages will be used. Are you sure to withdraw?')">Withdraw from survey</a></strong>
+                    </div>
+                    <br>
+                    <br>
+                </form>
+                <!--<strong><a href="{{ url_for('clearsession') }}">Clear session</a></strong> (show on DEBUG mode)-->
+            </div></div>
+        </div>
+
+        <!-- this is to show the values in the data base for debugging-->
+
+            <!--<br>(DEBUG mode) Score database output:
+            <div class='container'>
+            <strong><a href="{{ url_for('clearsession') }}">Clear session</a></strong>
+
+            </div>
+            {% for score in scores %}
+                <div class="container">
+                    uid={{ score.user_id }}
+                    session count = {{sessionCount}}
+
+                    cu={{ score.user_name.user_name }}
+                    sf={{ score.sound_file }}
+                    ps={{ score.ptich_stability }}
+                    ts={{ score.timbre_stability }}
+                    ds={{ score.dynamic_stability }}
+                    ac={{ score.attack_clarity }}
+                    tr={{ score.timbre_richness }}
+
+                    bd={{score.dark_bright}}
+                    cw={{score.cold_warm}}
+                    hs={{score.harsh_sweet}}
+                    dr={{score.dry_resonant}}
+                    lh={{score.light_heavy}}
+                    gp={{score.grainy_pure}}
+                    cs={{score.coarse_smooth}}
+                    co={{score.closed_open}}
+                    rf={{score.restricted_free}}
+                    nb={{score.narrow_broad}}
+
+                </div>
+            {% endfor %}
+
+            <!--delete or comment for loop if not debuging-->
+    </body>
+</html>

@@ -1,0 +1,105 @@
+ <html>
+    <head>
+        <title>Performance Expressivity Survey</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    </head>
+
+    <body>
+    <div class= "container">
+         <table role="presentation" class="survey-title-table table-reset">
+            <tbody>
+                <tr>
+                    <td class="logo-cell">
+                        <span class="logo-container notranslate" style="width:300px;height:239px;">
+                            <img class="logo user-generated"
+                            src="//surveymonkey-assets.s3.amazonaws.com/survey/76671199/07154770-f9d9-4980-9e8c-9ebd0fbe8def.png"
+                            style="width:300px;height:239px;"
+                            alt="" />
+                        </span>
+                    </td>
+                    <td class="survey-title-cell">
+                        <h1 class="survey-title user-generated notranslate">
+                            <span class="title-text">
+                                Survey for Perceptual Evaluation of Expression in Performance
+                            </span>
+                        </h1>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="title" style="background-color:#4eadb9; padding:5pt">
+            <div class='container' style="color:#ffffff">
+                1. Information
+            </div>
+        </div>
+        <div class='container'>
+        <div class="title">
+            <h3>About the survey<br></h3><br>
+        </div>
+        </div>
+
+        <div class='container'>
+            <div id="content">
+
+            {% if session['name'] %}
+                You have started a survey with this automatically generated user name: <strong>{{session['name']}}</strong>.<br><br>
+                <strong><a href="{{ url_for('main_form') }}">Continue grading</a></strong><br/>
+                <strong><a href="{{ url_for('clearsession') }}" onclick="return confirm('If you withdraw, any answers you have submitted on previous pages will be used. Are you sure to withdraw?')">Withdraw</a></strong>
+            {% else %}<!-- if new user/session-->
+
+                Welcome! The experiment you are invited to participate is part
+                of project TELMI, which focuses on developing new technologies for learning musical instruments. In this survey, we are
+                interested in studying the impact of variations in dynamics (loudness) and timing in the perception of musical expression. Our aim is to evaluate
+                how our computer models fare in terms of their likeness to human performance.
+
+                <br>
+                <br>
+                In the following pages you will be asked to listen to computer generated audio samples and compare them according to your perception of
+                how well they approximate a human rendition.
+                The survey should take approximately 30 minutes to complete. Below you can find more details regarding our data usage policy. For any
+                questions, feel free to contact the researchers.
+
+                <br>
+                <br>
+                <strong>Which are the listening requirements?</strong><br>
+                <font color='red'>
+                You will need a standard laptop/desktop computer with internet connection. For optimal audio quality <strong>we recommend
+                Chrome or Mozilla Firefox browsers. Internet Explorer and Safari are not supported</strong>.
+                We encourage you to perform the test in a <b>quiet room</b> using <b>high quality headphones</b>.</font>
+                <br>
+                <br><br>
+                <strong>Thank you for taking part in this project!</strong><br>
+                <br>
+                <strong>Contacts:</strong><br>
+                Fabio Ortega<br>fabiojose.muneratti@upf.edu<br>
+                <br>
+                Rafael Ramirez<br>rafael.ramirez@upf.edu
+                <br><br>
+                <div style="text-align:center">
+                    <form action="{{ url_for('form') }}">
+                        <input type="submit" class="btn btn-success" style="background-color:#4eadb9" value="Start Survey" />
+                    </form>
+                </div>
+                <br style= "background-color:#4eadb9"></br>
+
+                <strong>Note on Participation and Data Usage</strong><br>
+
+                Participation in this survey is voluntary and open to anyone aged 16 or older. All responses will be anonymised, and the data
+                collected will be presented at national and international conferences as well as published in academic journals, and may be used
+                for subsequent research. If you decide to take part, by beginning
+                this survey you are providing your informed consent. You will still be free to withdraw at any time. If you are interested to learn
+                more about the results or if you would like your data removed from the project please contact the researchers. <br><br>
+
+                <!--<button href="{{ url_for('form') }}"><strong>Start Survey</strong></button><br/> -->
+            {% endif %}
+            </div><!--content-->
+    <!--<strong><a href="{{ url_for('clearsession') }}">Clear session</a></strong> - -->
+    </div>
+    </div>
+    </body>
+</html>
