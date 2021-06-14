@@ -1,6 +1,6 @@
 
 from flask import Flask, redirect, render_template, request, url_for, session
-from flask.ext.sqlalchemy import SQLAlchemy
+from flask_sqlalchemy import SQLAlchemy
 from random import shuffle, choice
 from string import ascii_uppercase, digits
 import MySQLdb as DB
