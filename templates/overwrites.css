@@ -1,0 +1,81 @@
+/* This file overwrites classes from the original template stylesheet */
+
+.background-image-container {
+    text-align: center;
+    background-image: url(./assets/images/wave-hero-background.png)
+}
+
+.navbar-brand>.navbar-logo-img {
+    display: inline-block;
+    margin-top: -18.5px
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: Martel, Times New Roman, Times, serif;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #c8102e
+}
+
+
+.h2:after,
+h2:after {
+    content: "...";
+    color: #c8102e;
+    display: block
+}
+
+.btn-primary {
+    color: #c8102e;
+    background-color: transparent;
+    border-color: #c8102e
+}
+
+.btn-primary.focus,
+.btn-primary:focus {
+    color: #c8102e;
+    background-color: transparent;
+    border-color: #9b3d4c
+}
+
+.btn-primary.active,
+.btn-primary:active,
+.btn-primary:hover,
+.open>.btn-primary.dropdown-toggle {
+    color: #c8102e;
+    background-color: transparent;
+    border-color: #9b3d4c
+}
+
+.btn-primary.active.focus,
+.btn-primary.active:focus,
+.btn-primary.active:hover,
+.btn-primary:active.focus,
+.btn-primary:active:focus,
+.btn-primary:active:hover,
+.open>.btn-primary.dropdown-toggle.focus,
+.open>.btn-primary.dropdown-toggle:focus,
+.open>.btn-primary.dropdown-toggle:hover {
+    color: #c8102e;
+    background-color: transparent;
+    border-color: #9b3d4c
+}
+
+.block-img {
+    display: block; 
+    margin-right: auto; 
+    margin-left: auto;
+    padding: 25px;
+    margin-top: -12.5px;
+}
