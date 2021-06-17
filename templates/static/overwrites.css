@@ -2,7 +2,7 @@
 
 .background-image-container {
     text-align: center;
-    background-image: url(./assets/images/wave-hero-background.png)
+    background-image: url(/static/images/wave-hero-background.png)
 }
 
 .navbar-brand>.navbar-logo-img {
