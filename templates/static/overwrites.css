@@ -42,34 +42,24 @@ h2:after {
     border-color: #c8102e
 }
 
-.btn-primary.focus,
-.btn-primary:focus {
-    color: #c8102e;
-    background-color: transparent;
-    border-color: #9b3d4c
+.btn-primary:focus,
+.btn-primary:hover {
+    background-color: #c8102e;
+    color: #fff;
+    border-color: #c8102e
 }
 
-.btn-primary.active,
-.btn-primary:active,
-.btn-primary:hover,
-.open>.btn-primary.dropdown-toggle {
-    color: #c8102e;
+.btn-primary.disabled.focus,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:hover,
+.btn-primary[disabled].focus,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary.focus,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary:hover {
     background-color: transparent;
-    border-color: #9b3d4c
-}
-
-.btn-primary.active.focus,
-.btn-primary.active:focus,
-.btn-primary.active:hover,
-.btn-primary:active.focus,
-.btn-primary:active:focus,
-.btn-primary:active:hover,
-.open>.btn-primary.dropdown-toggle.focus,
-.open>.btn-primary.dropdown-toggle:focus,
-.open>.btn-primary.dropdown-toggle:hover {
-    color: #c8102e;
-    background-color: transparent;
-    border-color: #9b3d4c
+    border-color: #c8102e
 }
 
 .block-img {

@@ -255,35 +255,32 @@
           </div>
           <div class="card-container">
             <div class="card card-shadow col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2 reveal">
-              <form action="" class="reveal-content">
+              <div class="row">
+                <div class="col-md-12 " role="alert">
+                    <div class="alert alert-danger" role="alert" id="response-message" style="visibility: invisible;"></div>
+                </div>
+              </div> <!-- message -->
+              <form id="contact-form" action="{{ url_for('contact') }}" class="reveal-content">
                 <div class="row">
                   <div class="col-md-12">
                     <div class="form-group">
-                      <input type="text" class="form-control" id="name" placeholder="Name">
+                      <input type="text" class="form-control" id="name" name="name" placeholder="Name">
                     </div>
                     <div class="form-group">
-                      <input type="email" class="form-control" id="email" placeholder="Email">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="button" onclick="take_part()" class="btn btn-primary">Submit</button>
                   </div>
-                  <!-- <div class="col-md-5">
-                    <ul class="list-unstyled address-container">
-                      <li>
-                        <span class="fa-icon">
-                          <i class="fa fa-phone" aria-hidden="true"></i>
-                        </span>
-                        + 33 9 07 45 12 65
-                      </li>
-                      <li>
-                        <span class="fa-icon">
-                          <i class="fa fa fa-map-o" aria-hidden="true"></i>
-                        </span>
-                        42 rue Moulbert 75016 Paris
-                      </li>
-                    </ul>
-                  </div> -->
                 </div>
               </form>
+              <div class="row" id="response-thanks" style="visibility: invisible;">
+                <div class="col-md-12">
+                  <h3> 
+                    Contact info sent.<br/>
+                    Thank you for taking an interest in our project. 
+                  </h3>
+                </div>
+              </div> <!-- response-thanks -->
             </div>
           </div>
         </div>  
@@ -341,6 +338,7 @@
   });
 </script>
 
-<script type="text/javascript" src="/static/main.js"></script></body>
+<script type="text/javascript" src="/static/main.js"></script>
+<script type="text/javascript" src="/static/controller.js"></script></body>
 
 </html>

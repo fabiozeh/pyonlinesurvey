@@ -1,5 +1,5 @@
 
-from flask import Flask, redirect, render_template, request, url_for, session
+from flask import Flask, redirect, render_template, request, url_for, session, make_response
 from flask_sqlalchemy import SQLAlchemy
 from random import shuffle, choice
 from string import ascii_uppercase, digits
@@ -79,6 +79,15 @@ class Experiment(db.Model):
     practice_exp = db.Column(db.Integer)
 
 
+class Participant(db.Model):
+
+    __tablename__ = "participant"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(500))
+    email = db.Column(db.String(100))
+
+
 sessionCount = 0
 
 app.secret_key = 'IQKm8Eh1jTnNBgbdFf/hjMuFv2punyc1'
@@ -116,47 +125,23 @@ def index_handler():
     return sessionCount
 
 
-#############################################
-@app.route('/form', methods=["GET", "POST"])
-def form():
-
-    if request.method == "GET":
-        return render_template("form.html")
+@app.route('/contact')
+def contact():
 
     # Load data into the user data base
     request.args.get
-    random_id = id_generator()
-    session['name'] = request.form["user_name"] + random_id
 
-    xp = Experiment()
-    xp.user_name = request.form["user_name"] + random_id
-    xp.age = request.form["age"]
-    xp.gender = request.form["gender"]
-    xp.instrument = request.form["instrument"]
-    xp.years_study = request.form["years_study"]
-    xp.hours_practice = request.form["hours_practice"]
-    xp.one_to_one_lessons = request.form["one_to_one_lessons"]
-    xp.if_lessons_years = request.form["if_lessons_years"]
-    xp.musical_genre = request.form["musical_genre"]
-    xp.musical_activity = request.form["musical_activity"]
-    xp.plays_reading = request.form["plays_reading"]
-    xp.practice_exp = request.form["practice_exp"]
+    part = Participant()
+    part.name = request.form["name"]
+    part.email = request.form["email"]
 
-    db.session.add(xp)
+    db.session.add(part)
     db.session.commit()
 
-    # create piece list
-    piece_list = ["Gscale", "Ascale", "MdeC", "Twinkle"]
-
-    # Randomize list
-    shuffle(piece_list)
-
-    session['piece_list'] = piece_list
-
-    # And then redirect the user to the main form
-    return redirect(url_for('pre_test'))
+    return make_response("Success")
 
 
+#############################################
 @app.route('/clearsession')
 def clearsession():
     # Clear the session
