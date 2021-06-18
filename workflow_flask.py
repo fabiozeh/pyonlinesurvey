@@ -125,7 +125,7 @@ def index_handler():
     return sessionCount
 
 
-@app.route('/contact')
+@app.route('/contact', methods=["GET", "POST"])
 def contact():
 
     # Load data into the user data base
