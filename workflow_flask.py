@@ -27,7 +27,7 @@ class Rec(db.Model):
     __tablename__ = "recording"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    xp_id = db.Column(db.Integer, db.ForeignKey('experiment.id'))
     with_tech = db.Column(db.Integer)
     piece_id = db.Column(db.Integer)
     piece_index = db.Column(db.Integer)
