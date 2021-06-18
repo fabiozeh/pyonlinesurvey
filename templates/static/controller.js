@@ -9,17 +9,17 @@ function take_part() {
 	req.onreadystatechange = function() {
     	if (this.readyState == 4){
     		if (this.status == 200) {
-       			form.style.visibility = "hidden";
-       			thanks.style.visibility = "visible";
+       			form.style.display = "none";
+       			thanks.style.display = "";
        		}
        		else {
        			msg.innerHTML = req.responseText
-       			msg.style.visibility = "visible";
+       			msg.style.display = "";
        			form.elements.forEach(element => element.disabled = false);
        		}
     	}
 	};
-	xhttp.open("POST", form.action, true);
-	xhttp.send(fd);
+	req.open("POST", form.action, true);
+	req.send(fd);
 	form.elements.forEach(element => element.disabled = true);
 }
