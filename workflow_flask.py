@@ -114,6 +114,11 @@ def index():
     return render_template('index.html')
 
 
+@app.route('/es/')
+def index_es():
+    return render_template('ES/index.html')
+
+
 def index_handler():
     sumSessionCounter()
     restSessionCounter()
