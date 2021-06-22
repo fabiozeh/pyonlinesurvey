@@ -208,7 +208,7 @@ def experiment():
 
 
 @app.route('/xp-steps', methods=["GET", "POST"])
-def experiment_steps():
+def xp_steps():
     try:
         step = session['step']
         exercise = session['exercise']
