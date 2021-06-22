@@ -55,57 +55,61 @@
             <p class="text-left">
                 Please complete the following information:
             </p>
-            <form action="{{ url_for('form_submit') }}"" method="POST">
-                <label for="age">1. Age: </label><input class="form-control" type="number" name="age" min="18" max="100" required/><br />
-                <label for="gender">2. Gender: </label>
+            <form action="{{ url_for('form_submit') }}"" class="text-left" method="POST">
+                <label for="age"><h4>1. Age: </h4></label>
+                <input class="form-control" type="number" name="age" min="18" max="120" required/><br />
+                <label for="gender"><h4>2. Gender: </h4></label>
                 <select class="form-control" name="gender" required>
-                    <option value="u">Unspecified</option>
-                    <option value="m">Male</option>
-                    <option value="f">Female</option>
+                    <label><input type="radio" name="gender" value="u" required/>Unspecified</label>
+                    <label><input type="radio" name="gender" value="m" required/>Male</label>
+                    <label><input type="radio" name="gender" value="f" required/>Female</label>
                 </select><br/>
-                <label for="years_study">3. For how many years have you studied violin? </label><input class="form-control" type="number" name="years_study" min="0" max="100" required/><br />
-                <label for="hours_practice">4. For approximately how many hours do you practice on a typical day? </label><input class="form-control" type="number" name="hours_practice" min="0" max="24" required/><br/>
-                <label for="one_to_one_lessons">5. Have you taken one-to-one violin lessons?</label><br/>
-                <div class="form-group">
-                    <label><input class="form-control" type="radio" name="one_to_one_lessons" value="y" required/>Yes</label><br>
-                    <label><input class="form-control" type="radio" name="one_to_one_lessons" value="n" required/>No</label><br />
-                    <label for="if_lessons_years">If yes, how many years? If no, please enter "0" </label><input class="form-control" type="number" name="if_lessons_years" min="0" max="100" required/><br />
+                <label for="years_study"><h4>3. For how many years have you studied violin? </h4></label>
+                <input class="form-control" type="number" name="years_study" min="0" max="100" required/><br />
+                <label for="hours_practice"><h4>4. For approximately how many hours do you practice on a typical day?</h4></label>
+                <input class="form-control" type="number" name="hours_practice" min="0" max="24" required/><br/>
+                <label for="one_to_one_lessons"><h4>5. Have you taken one-to-one violin lessons?</h4></label><br/>
+                <div class="form-group row">
+                    <div class="col-xs-6"><label><input class="form-control" type="radio" name="one_to_one_lessons" value="y" required/>Yes</label></div>
+                    <div class="col-xs-6"><label><input class="form-control" type="radio" name="one_to_one_lessons" value="n" required/>No</label></div>
                 </div>
-                <label for="musical_genre">6. What is the primary musical genre you play? </label><br>
+                <label for="if_lessons_years"><h4>If yes, how many years? If no, please enter "0" </h4></label>
+                <input class="form-control" type="number" name="if_lessons_years" min="0" max="100" required/><br />
+                <label for="musical_genre"><h4>6. What is the primary musical genre you play?</h4></label><br/>
                 <div class="form-group">
-                    <label><input class="form-control" type="radio" name="musical_genre" value="classical" required/>Classical</label><br>
-                    <label><input class="form-control" type="radio" name="musical_genre" value="jazz" required/>Jazz</label><br />
-                    <label><input class="form-control" type="radio" name="musical_genre" value="pop" required/>Pop</label><br>
-                    <label><input class="form-control" type="radio" name="musical_genre" value="rock" required/>Rock</label><br />
-                    <label><input class="form-control" type="radio" name="musical_genre" value="electronic" required/>Dance/Electronic</label><br>
-                    <label><input class="form-control" type="radio" name="musical_genre" value="rap" required/>Rap/Hip-Hop</label><br>
-                    <label><input class="form-control" type="radio" name="musical_genre" value="traditional" required/>Traditional/Folk</label><br>
-                    <label><input class="form-control" type="radio" name="musical_genre" value="other" required/>Other</label><br />
-                    </div>
-                <label for="musical_activity">7. Which option best describes your musical activity?</label><br>
-                <div class="form-group">
-                    <label><input class="form-control" type="radio" name="musical_activity" value="amateur" required/>Amateur</label><br>
-                    <label><input class="form-control" type="radio" name="musical_activity" value="student_school" required/>Student: secondary school</label><br />
-                    <label><input class="form-control" type="radio" name="musical_activity" value="student_undergrad" required/>Student: undergraduate</label><br>
-                    <label><input class="form-control" type="radio" name="musical_activity" value="student_postgrad" required/>Student: postgraduate</label><br />
-                    <label><input class="form-control" type="radio" name="musical_activity" value="professional" required/>Professional</label><br>
+                    <label><input type="radio" name="musical_genre" value="classical" required/>Classical</label><br/>
+                    <label><input type="radio" name="musical_genre" value="jazz" required/>Jazz</label><br />
+                    <label><input type="radio" name="musical_genre" value="pop" required/>Pop</label><br/>
+                    <label><input type="radio" name="musical_genre" value="rock" required/>Rock</label><br />
+                    <label><input type="radio" name="musical_genre" value="electronic" required/>Dance/Electronic</label><br/>
+                    <label><input type="radio" name="musical_genre" value="rap" required/>Rap/Hip-Hop</label><br/>
+                    <label><input type="radio" name="musical_genre" value="traditional" required/>Traditional/Folk</label><br/>
+                    <label><input type="radio" name="musical_genre" value="other" required/>Other</label><br />
                 </div>
-                <label for="plays_reading">8. How often do you play while reading from a score?</label><br>
+                <label for="musical_activity"><h4>7. Which option best describes your musical activity?</h4></label><br>
+                <div class="form-group">
+                    <label><input type="radio" name="musical_activity" value="amateur" required/>Amateur</label><br/>
+                    <label><input type="radio" name="musical_activity" value="student_school" required/>Student: secondary school</label><br />
+                    <label><input type="radio" name="musical_activity" value="student_undergrad" required/>Student: undergraduate</label><br/>
+                    <label><input type="radio" name="musical_activity" value="student_postgrad" required/>Student: postgraduate</label><br />
+                    <label><input type="radio" name="musical_activity" value="professional" required/>Professional</label><br/>
+                </div>
+                <label for="plays_reading"><h4>8. How often do you play while reading from a score?</h4></label><br/>
                 <div class="form-group">
                     <label><input type="radio" name="plays_reading" value="1" required/>Never/Hardly ever</label><br>
-                    <label><input class="form-control" type="radio" name="plays_reading" value="2" required/>Seldom </label><br/>
-                    <label><input class="form-control" type="radio" name="plays_reading" value="3" required/>Sometimes</label><br/>
-                    <label><input class="form-control" type="radio" name="plays_reading" value="4" required/>Very often</label><br />
-                    <label><input class="form-control" type="radio" name="plays_reading" value="5" required/>Nearly always/Always</label><br />
+                    <label><input type="radio" name="plays_reading" value="2" required/>Seldom </label><br/>
+                    <label><input type="radio" name="plays_reading" value="3" required/>Sometimes</label><br/>
+                    <label><input type="radio" name="plays_reading" value="4" required/>Very often</label><br />
+                    <label><input type="radio" name="plays_reading" value="5" required/>Nearly always/Always</label><br />
                 </div>
                 <br>
-                <label for="practice_exp">9. How often do you practice your expressive performance skills?</label><br>
+                <label for="practice_exp"><h4>9. How often do you practice your expressive performance skills?</h4></label><br>
                 <div class="form-group">
-                    <label><input class="form-control" type="radio" name="practice_exp" value="1" required/>Never/Hardly ever</label><br>
-                    <label><input class="form-control" type="radio" name="practice_exp" value="2" required/>Seldom</label><br/>
-                    <label><input class="form-control" type="radio" name="practice_exp" value="3" required/>Sometimes</label><br/>
-                    <label><input class="form-control" type="radio" name="practice_exp" value="4" required/>Very often</label><br />
-                    <label><input class="form-control" type="radio" name="practice_exp" value="5" required/>Nearly always/Always</label><br />
+                    <label><input type="radio" name="practice_exp" value="1" required/>Never/Hardly ever</label><br>
+                    <label><input type="radio" name="practice_exp" value="2" required/>Seldom</label><br/>
+                    <label><input type="radio" name="practice_exp" value="3" required/>Sometimes</label><br/>
+                    <label><input type="radio" name="practice_exp" value="4" required/>Very often</label><br />
+                    <label><input type="radio" name="practice_exp" value="5" required/>Nearly always/Always</label><br />
                 </div>
                 <br>
                 <input type="submit" class="btn btn-success" value="Next">
