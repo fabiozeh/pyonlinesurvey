@@ -190,13 +190,13 @@ def form_submit():
     # odd = scale first
     # xp_id mod 4 < 2 = aural first
     if xp.id % 4 == 0:
-        session['exercise'] = map(lambda i: (piece[i], scale[i], mode[i]), range(len(piece)))
+        session['exercise'] = list(map(lambda i: (piece[i], scale[i], mode[i]), range(len(piece))))
     elif xp.id % 4 == 1:
-        session['exercise'] = map(lambda i: (scale[i], piece[i], mode[i]), range(len(piece)))
+        session['exercise'] = list(map(lambda i: (scale[i], piece[i], mode[i]), range(len(piece))))
     elif xp.id % 4 == 2:
-        session['exercise'] = map(lambda i: (piece[i], scale[i], mode[i]), reversed(range(len(piece))))
+        session['exercise'] = list(map(lambda i: (piece[i], scale[i], mode[i]), reversed(range(len(piece)))))
     else:
-        session['exercise'] = map(lambda i: (scale[i], piece[i], mode[i]), reversed(range(len(piece))))
+        session['exercise'] = list(map(lambda i: (scale[i], piece[i], mode[i]), reversed(range(len(piece)))))
 
     # And then redirect user to the main experiment
     return redirect(url_for('experiment'))
