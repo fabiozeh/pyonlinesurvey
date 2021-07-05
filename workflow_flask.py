@@ -189,9 +189,9 @@ def form_submit():
     # The order of exercises will be determined by the xp_id:
     # odd = aural first
     if xp.id % 2 == 0:
-        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(piece))))
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(mode))))
     else:
-        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(piece)))))
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(mode)))))
 
     # And then redirect user to the main experiment
     return redirect(url_for('experiment'))
@@ -400,9 +400,9 @@ def dummy_session():
     # The order of exercises will be determined by the xp_id:
     # odd = aural first
     if xp.id % 2 == 0:
-        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(piece))))
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(mode))))
     else:
-        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(piece)))))
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(mode)))))
 
     # And then redirect user to the main experiment
     return redirect(url_for('experiment'))
