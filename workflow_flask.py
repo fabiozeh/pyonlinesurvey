@@ -177,26 +177,21 @@ def form_submit():
     session['xp_id'] = xp.id
 
     # create sound file list
-    piece = ["twinkle", "manha"]
-    scale = ["Gmaj", "Amin"]
+    piece = ["twinkle", "manha", "cabeza", "silent"]
+    # scale = ["Gmaj", "Amin"]  # no more scales
     mode = ["aural", "tech"]
 
     # Randomize lists
     shuffle(piece)
-    shuffle(scale)
+    # shuffle(scale)
     # shuffle(mode)  # don't shuffle here, order determined by id.
 
     # The order of exercises will be determined by the xp_id:
-    # odd = scale first
-    # xp_id mod 4 < 2 = aural first
-    if xp.id % 4 == 0:
-        session['exercise'] = list(map(lambda i: (piece[i], scale[i], mode[i]), range(len(piece))))
-    elif xp.id % 4 == 1:
-        session['exercise'] = list(map(lambda i: (scale[i], piece[i], mode[i]), range(len(piece))))
-    elif xp.id % 4 == 2:
-        session['exercise'] = list(map(lambda i: (piece[i], scale[i], mode[i]), reversed(range(len(piece)))))
+    # odd = aural first
+    if xp.id % 2 == 0:
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(piece))))
     else:
-        session['exercise'] = list(map(lambda i: (scale[i], piece[i], mode[i]), reversed(range(len(piece)))))
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(piece)))))
 
     # And then redirect user to the main experiment
     return redirect(url_for('experiment'))
@@ -375,6 +370,42 @@ def clearsession():
     session.clear()
     # Redirect the xp to the main page
     return render_template("end_page.html")
+
+
+@app.route('/dummysession')
+def dummy_session():
+    # Load data into the data base
+    session.clear()
+
+    xp = Experiment()
+    xp.date = datetime.utcnow().isoformat()
+    xp.age = 0
+
+    db.session.add(xp)
+    db.session.commit()
+
+    session['step'] = 1
+    session['xp_id'] = xp.id
+
+    # create sound file list
+    piece = ["twinkle", "manha", "cabeza", "silent"]
+    # scale = ["Gmaj", "Amin"]  # no more scales
+    mode = ["aural", "tech"]
+
+    # Randomize lists
+    shuffle(piece)
+    # shuffle(scale)
+    # shuffle(mode)  # don't shuffle here, order determined by id.
+
+    # The order of exercises will be determined by the xp_id:
+    # odd = aural first
+    if xp.id % 2 == 0:
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(piece))))
+    else:
+        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(piece)))))
+
+    # And then redirect user to the main experiment
+    return redirect(url_for('experiment'))
 
 
 def id_generator(size=6, chars=ascii_uppercase + digits):
