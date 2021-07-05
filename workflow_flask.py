@@ -227,7 +227,6 @@ def xp_steps():
     except KeyError:
         return render_template('session_error.html')
 
-    session['step'] += 1
     if step == 1:
         return render_template('prerec.html', exercise=piece_name(exercise[0][0]), mode=exercise[0][2], pct=step / 18)
     elif step == 2:
@@ -360,6 +359,7 @@ def xp_data():
         surv.improve = request.form["improve"]
         surv.other = request.form["other"]
 
+    session['step'] += 1
     return redirect(url_for('xp-steps'))
 
 
