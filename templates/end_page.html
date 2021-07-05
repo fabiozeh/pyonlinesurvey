@@ -1,54 +1,64 @@
-<html>
-    <head>
-        <title>Performance Expressivity Survey</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
 
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    </head>
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <meta content="description" name="Information page about the UPF Skynote expression experiment.">
+  <meta name="google" content="notranslate" />
+  <!-- Disable tap highlight on IE -->
+  <meta name="msapplication-tap-highlight" content="no">
+  
+  <link href="/static/favicon.ico" type="image/png" rel="icon">
 
-    <body>
+  <title>SkyNote – Improving the practice of musical expression</title>
 
-    <div class= "container">
-         <table role="presentation" class="survey-title-table table-reset">
-            <tbody>
-                <tr>
-                    <td class="logo-cell">
-                        <span class="logo-container notranslate" style="width:300px;height:239px;">
-                            <img class="logo user-generated"
-                            src="//surveymonkey-assets.s3.amazonaws.com/survey/76671199/07154770-f9d9-4980-9e8c-9ebd0fbe8def.png"
-                            style="width:300px;height:239px;"
-                            alt="" />
-                        </span>
-                    </td>
-                    <td class="survey-title-cell">
-                        <h1 class="survey-title user-generated notranslate">
-                            <span class="title-text">
-                                Survey for Perceptual Evaluation of Expression in Performance
-                            </span>
-                        </h1>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+  <link href="/static/main.css" rel="stylesheet">
+  <link href="/static/overwrites.css" rel="stylesheet">
+</head>
 
-        <div class="title" style="background-color:#4eadb9; padding:5pt">
-            <div class='container' style="color:#ffffff">
-                End of survey
-            </div>
-        </div>
-        <br/>
-        <div class="container">
-        <div class="row">
-            <font size="4">Thanks for taking part in this project!<br>
-            If you have any questions or would like to know more, please contact:</font> <br>
-            <br>
-            Fabio Ortega<br>fabiojose.muneratti@upf.edu<br>
-            <br>
-            Rafael Ramirez<br>rafael.ramirez@upf.edu
-            <br><br>
-        </div>
-        <strong><a href="{{ url_for('index') }}">Home</a></strong>
-    </body>
+<body>
+<header>
+  <nav class="navbar navbar-default active">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="https://www.upf.edu/web/mtg/" title="">
+          <img src="/static/images/MTG_RGB_logo-02_white.svg" class="navbar-logo-img" alt="UPF – Music Technology Group">
+        </a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/es/" title="">Español</a></li>
+          <!-- <li>
+            <p>
+              <a href="#take_part" class="btn btn-default navbar-btn" title="">Take Part</a>
+            </p>
+          </li> -->
+        </ul>
+      </div> 
+    </div>
+  </nav>
+</header>
+<div class="section-container">
+    <div class="container" id="main_div"> 
+      <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+            <h2>End of Experiment</h2>
+            <p class="text-left">
+                Thank you for taking part in our experiment!
+            </p>
+        </div> <!-- col -->
+      </div> <!-- row -->
+    </div> <!-- container -->
+</div>
+<script type="text/javascript" src="/static/controller.js"></script>
+</body>
 </html>

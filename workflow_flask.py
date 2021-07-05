@@ -207,6 +207,23 @@ def experiment():
     return render_template("experiment.html")
 
 
+def piece_name(identifier):
+    if identifier == "twinkle":
+        return "Twinkle Twinkle Little Star"
+    elif identifier == "manha":
+        return "Manhã de Carnaval"
+    elif identifier == "cabeza":
+        return "Por Una Cabeza"
+    elif identifier == "silent":
+        return "Silent Night"
+    elif identifier == "Gmaj":
+        return "G Major Scale"
+    elif identifier == "Amin":
+        return "A Minor Scale"
+    else:
+        return identifier
+
+
 @app.route('/xp-steps', methods=["GET", "POST"])
 def xp_steps():
     try:
@@ -269,8 +286,8 @@ def xp_data():
     if step == 2 or step == 6 or step == 10 or step == 14:
         rec = Rec()
         rec.xp_id = xp_id
-        rec.pre_confidence = request.form["pre_confidence"]
-        rec.pre_quality = request.form["pre_quality "]
+        # rec.pre_confidence = request.form["pre_confidence"]
+        rec.pre_quality = request.form["pre_quality"]
         rec.pre_technical = request.form["pre_technical"]
         rec.pre_musicality = request.form["pre_musicality"]
         rec.pre_note = request.form["pre_note"]

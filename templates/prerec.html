@@ -1,0 +1,63 @@
+
+<div class="row reveal-content">
+  <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+      <h2>Pre-recording</h2>
+      <p class="text-left">
+          Please access the score entitled <strong>{{ piece_name(request.args.get("exercise")) }}</strong>. You may practice it to familiarize yourself with the piece, and once you are satisfied, record yourself playing it. After recording, please answer the questions rating from 1 (low) to 7 (high) your...
+      </p>
+      <form action="{{ url_for('xp_data') }}""id="survey-form" class="text-left" method="POST">
+          <label for="pre_quality"><h4>Performance Quality</h4></label>
+          <div class="input-group">
+              <label><input type="radio" name="pre_quality" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_quality" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_quality" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_quality" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_quality" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_quality" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_quality" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+          <label for="pre_technical"><h4>Technical Competence</h4></label>
+          <div class="input-group">
+              <label><input type="radio" name="pre_technical" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_technical" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_technical" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_technical" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_technical" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_technical" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_technical" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+          <label for="pre_musicality"><h4>Musicality</h4></label>
+          <div class="input-group">
+              <label><input type="radio" name="pre_musicality" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_musicality" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_musicality" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_musicality" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_musicality" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_musicality" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_musicality" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+          <label for="pre_note"><h4>Intonation / Note Accuracy</h4></label>
+          <div class="input-group">
+              <label><input type="radio" name="pre_note" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_note" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_note" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_note" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_note" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_note" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_note" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+          <label for="pre_rhythm"><h4>Rhythmic Accuracy</h4></label>
+          <div class="input-group">
+              <label><input type="radio" name="pre_rhythm" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_rhythm" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_rhythm" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_rhythm" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_rhythm" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_rhythm" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_rhythm" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+          <br>
+          <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+      </form>
+  </div> <!-- col -->
+</div> <!-- row -->

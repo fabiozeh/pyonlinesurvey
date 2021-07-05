@@ -23,3 +23,32 @@ function take_part() {
 	req.send(fd);
 	form.elements.forEach(element => element.disabled = true);
 }
+
+function fetch_step() {
+	const main_div = document.getElementById('main_div');
+	const form = document.getElementById('survey-form');
+
+	var req = new XMLHttpRequest();
+	
+	req.onreadystatechange = function() {
+    	if (this.readyState == 4){
+    		if (this.status == 200) {
+       			main_div.innerHTML = req.responseText
+       		}
+       		else {
+       			//same...
+       			main_div.innerHTML = req.responseText
+       		}
+    	}
+	};
+	if (form) {
+		const fd = new FormData(form);
+		req.open("POST", "xp-data", true);
+		req.send(fd);
+	}
+	else {
+		req.open("GET", "xp-steps", true);
+		req.send();
+		// loading element?
+	}
+}
