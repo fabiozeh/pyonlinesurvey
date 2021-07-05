@@ -76,3 +76,9 @@ fieldset[disabled] .btn-primary:hover {
     font-size: 18px;
     color: inherit
 }
+
+.radio-group {
+    margin: 12.5px;
+    display: flex;
+    justify-content: space-evenly;
+}
