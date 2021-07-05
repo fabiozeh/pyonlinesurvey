@@ -3,7 +3,7 @@
   <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
       <h2>Pre-recording</h2>
       <p class="text-left">
-          Please access the score entitled <strong>{{ piece_name(request.args.get("exercise")) }}</strong>. You may practice it to familiarize yourself with the piece, and once you are satisfied, record yourself playing it. After recording, please answer the questions rating from 1 (low) to 7 (high) your...
+          Please access the score entitled <strong>{{ exercise }}</strong>. You may practice it to familiarize yourself with the piece, and once you are satisfied, record yourself playing it. After recording, please answer the questions rating from 1 (low) to 7 (high) your...
       </p>
       <form action="{{ url_for('xp_data') }}""id="survey-form" class="text-left" method="POST">
           <label for="pre_quality"><h4>Performance Quality</h4></label>

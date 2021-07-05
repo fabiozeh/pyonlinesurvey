@@ -234,7 +234,7 @@ def xp_steps():
 
     session['step'] += 1
     if step == 1:
-        return render_template('prerec.html', exercise=exercise[0][0], mode=exercise[0][2], pct=step / 18)
+        return render_template('prerec.html', exercise=piece_name(exercise[0][0]), mode=exercise[0][2], pct=step / 18)
     elif step == 2:
         return render_template('refpractice.html', exercise=exercise[0][0], mode=exercise[0][2], pct=step / 18)
     elif step == 3:
