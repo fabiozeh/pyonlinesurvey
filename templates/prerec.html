@@ -5,7 +5,7 @@
       <p class="text-left">
           Please access the score entitled <strong>{{ exercise }}</strong>. You may practice it to familiarize yourself with the piece, and once you are satisfied, record yourself playing it. After recording, please answer the questions rating from 1 (low) to 7 (high) your...
       </p>
-      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-center" method="POST">
+      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
         <div class="row">
           <div class="col-xs-12 col-md-5">
             <label for="pre_quality"><h4>Performance Quality</h4></label>
@@ -90,11 +90,50 @@
               <label><input type="radio" name="pre_tone" value="7" required/>&nbsp;&nbsp;7</label>
           </div>
         </div>
-          <input type="hidden" name="pre_dyn" value="1" required/>
-          <input type="hidden" name="pre_art" value="1" required/>
-          <input type="hidden" name="pre_improve" value="1" required/>
-          <br>
-          <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="pre_dyn"><h4>Dynamic Control</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="pre_dyn" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_dyn" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_dyn" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_dyn" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_dyn" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_dyn" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_dyn" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="pre_art"><h4>Quality of Articulation</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="pre_art" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_art" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_art" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_art" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_art" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_art" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_art" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="pre_improve"><h4>Room for Improvement</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="pre_improve" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="pre_improve" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="pre_improve" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="pre_improve" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="pre_improve" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="pre_improve" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="pre_improve" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <br>
+        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
       </form>
   </div> <!-- col -->
 </div> <!-- row -->

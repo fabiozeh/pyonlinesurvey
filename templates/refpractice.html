@@ -1,0 +1,17 @@
+
+<div class="row reveal-content">
+  <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+      <h2>Imitation Exercise - Instructions</h2>
+      <p class="text-left">
+          In the next step you will listen to a reference recording for <strong>{{ exercise }}</strong>. The purpose of this exercise is to learn how to imitate the performance you'll hear (even if you don't like it). Pay close attention to all elements you rated in your own recording in the previous step. You may practice your imitation for up to 10 minutes. When you are ready to start, click the "Next" button below.
+
+          {% if mode == "tech" %}
+            To assist you in this task, you will have the features of SkyNote available. Please ask the researcher to teach you how to operate the software before beginning.
+          {% endif %}
+      </p>
+      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
+        <input type="hidden" name="ok" value="ok" />
+        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+      </form>
+  </div> <!-- col -->
+</div> <!-- row -->

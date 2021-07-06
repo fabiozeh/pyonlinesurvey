@@ -277,7 +277,7 @@ def xp_data():
     xp_id = session['xp_id']
 
     # commit pre test
-    if step == 2 or step == 6 or step == 10 or step == 14:
+    if step == 1 or step == 5 or step == 9 or step == 13:
         rec = Rec()
         rec.xp_id = xp_id
         # rec.pre_confidence = request.form["pre_confidence"]
@@ -290,37 +290,37 @@ def xp_data():
         rec.pre_dyn = request.form["pre_dyn"]
         rec.pre_art = request.form["pre_art"]
         rec.pre_improve = request.form["pre_improve"]
-        if step == 2:
+        if step == 1:
             rec.with_tech = exercise[0][2] == "tech"
             rec.piece_id = exercise[0][0]
             rec.piece_index = 0
-        elif step == 6:
+        elif step == 5:
             rec.with_tech = exercise[0][2] == "tech"
             rec.piece_id = exercise[0][1]
             rec.piece_index = 1
-        elif step == 10:
+        elif step == 9:
             rec.with_tech = exercise[1][2] == "tech"
             rec.piece_id = exercise[1][0]
             rec.piece_index = 2
-        elif step == 14:
+        elif step == 13:
             rec.with_tech = exercise[1][2] == "tech"
             rec.piece_id = exercise[1][1]
             rec.piece_index = 3
         db.session.add(rec)
         db.session.commit()
-    elif step == 3 or step == 7 or step == 11 or step == 15:
+    elif step == 2 or step == 6 or step == 10 or step == 14:
         # commit start time
-        rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 2) // 4)).first()
+        rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
         rec.time_piece_start = datetime.utcnow().timestamp()
         db.session.commit()
-    elif step == 4 or step == 8 or step == 12 or step == 16:
+    elif step == 3 or step == 7 or step == 11 or step == 15:
         # commit stop time
-        rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 2) // 4)).first()
+        rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
         rec.time_piece_end = datetime.utcnow().timestamp()
         db.session.commit()
-    elif step == 5 or step == 9 or step == 13 or step == 17:
+    elif step == 4 or step == 8 or step == 12 or step == 16:
         # commit post test
-        rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 2) // 4)).first()
+        rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
         rec.post_quality = request.form["post_quality"]
         rec.post_technical = request.form["post_technical"]
         rec.post_musicality = request.form["post_musicality"]
@@ -335,7 +335,7 @@ def xp_data():
         rec.post_mental = request.form["post_mental"]
         rec.post_physical = request.form["post_physical"]
         db.session.commit()
-    elif step == 18:
+    elif step == 17:
         # commit skynote eval
         surv = PostSurvey()
         surv.xp_id = xp_id

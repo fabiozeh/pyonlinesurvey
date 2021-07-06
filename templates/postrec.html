@@ -1,0 +1,195 @@
+
+<div class="row reveal-content">
+  <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+      <h2>Imitation Exercise - Recording</h2>
+      <p class="text-left">
+          Please record yourself playing the imitation of the reference performance of <strong>{{ exercise }}</strong> as you just practiced. After recording, please answer the questions rating from 1 (low) to 7 (high) your...
+      </p>
+      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_quality"><h4>Performance Quality</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_quality" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_quality" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_quality" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_quality" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_quality" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_quality" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_quality" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_technical"><h4>Technical Competence</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_technical" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_technical" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_technical" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_technical" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_technical" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_technical" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_technical" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_musicality"><h4>Musicality</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_musicality" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_musicality" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_musicality" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_musicality" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_musicality" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_musicality" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_musicality" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_note"><h4>Intonation / Note Accuracy</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_note" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_note" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_note" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_note" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_note" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_note" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_note" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_rhythm"><h4>Rhythmic Accuracy</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_rhythm" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_rhythm" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_rhythm" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_rhythm" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_rhythm" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_rhythm" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_rhythm" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_tone"><h4>Tone Quality</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_tone" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_tone" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_tone" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_tone" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_tone" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_tone" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_tone" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_dyn"><h4>Dynamic Control</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_dyn" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_dyn" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_dyn" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_dyn" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_dyn" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_dyn" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_dyn" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_art"><h4>Quality of Articulation</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_art" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_art" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_art" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_art" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_art" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_art" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_art" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_improve"><h4>Improvement from the Previous Recording</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_improve" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_improve" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_improve" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_improve" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_improve" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_improve" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_improve" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_practice"><h4>Efficiency of Your Practice</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_practice" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_practice" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_practice" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_practice" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_practice" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_practice" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_practice" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_room"><h4>Room for Improvement</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_room" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_room" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_room" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_room" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_room" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_room" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_room" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_mental"><h4>Mental Effort Required for This Exercise</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_mental" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_mental" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_mental" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_mental" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_mental" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_mental" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_mental" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="post_physical"><h4>Physical Effort Required for This Exercise</h4></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="post_physical" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="post_physical" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="post_physical" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="post_physical" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="post_physical" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="post_physical" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="post_physical" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <br>
+        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+      </form>
+  </div> <!-- col -->
+</div> <!-- row -->
