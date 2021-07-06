@@ -360,7 +360,7 @@ def xp_data():
         surv.other = request.form["other"]
 
     session['step'] += 1
-    return redirect(url_for('xp-steps'))
+    return redirect(url_for('xp_steps'))
 
 
 #############################################
