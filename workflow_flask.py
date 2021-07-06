@@ -262,7 +262,7 @@ def xp_steps():
     elif step == 17:
         return render_template('skynoteeval.html', pct=step / 18)
     else:
-        return render_template('thank_you.html', pct=step / 18)
+        return render_template('end_page.html', pct=step / 18)
 
 
 @app.route('/xp-data', methods=["GET", "POST"])
@@ -341,15 +341,15 @@ def xp_data():
         surv.xp_id = xp_id
         surv.learn_quickly = request.form["learn_quickly"]
         surv.performance = request.form["performance"]
-        surv.productivity = request.form["productivity"]
-        surv.effectiveness = request.form["effectiveness"]
+        # surv.productivity = request.form["productivity"]
+        # surv.effectiveness = request.form["effectiveness"]
         surv.easier_practice = request.form["easier_practice"]
         surv.useful = request.form["useful"]
-        surv.easy_learn = request.form["easy_learn"]
+        # surv.easy_learn = request.form["easy_learn"]
         surv.what_want = request.form["what_want"]
-        surv.clear = request.form["clear"]
-        surv.flexible = request.form["flexible"]
-        surv.easy_skill = request.form["easy_skill"]
+        # surv.clear = request.form["clear"]
+        # surv.flexible = request.form["flexible"]
+        # surv.easy_skill = request.form["easy_skill"]
         surv.easy_use = request.form["easy_use"]
         surv.accurate = request.form["accurate"]
         surv.use_again = request.form["use_again"]

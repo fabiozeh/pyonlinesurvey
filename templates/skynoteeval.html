@@ -1,0 +1,181 @@
+
+<div class="row reveal-content">
+  <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
+      <h2>SkyNote Evaluation</h2>
+      <p class="text-left">
+          As a final contribution, we would like to know more about your opinion regarding SkyNote as a practice tool.
+      </p>
+      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
+        <div class="row">
+          <div class="col-xs-12">
+            <h4> To what degree did SkyNote... </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="learn_quickly"><h6>...help you learn more quickly?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="learn_quickly" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="learn_quickly" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="learn_quickly" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="learn_quickly" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="learn_quickly" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="learn_quickly" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="learn_quickly" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="performance"><h6>...improve your performance?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="performance" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="performance" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="performance" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="performance" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="performance" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="performance" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="performance" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="easier_practice"><h6>...make practicing easier?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="easier_practice" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="easier_practice" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="easier_practice" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="easier_practice" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="easier_practice" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="easier_practice" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="easier_practice" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="what_want"><h6>...do what you wanted it to do?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="what_want" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="what_want" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="what_want" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="what_want" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="what_want" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="what_want" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="what_want" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h4> To what degree was SkyNote... </h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="useful"><h6>...useful?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="useful" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="useful" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="useful" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="useful" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="useful" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="useful" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="useful" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="easy_use"><h6>...easy to use?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="easy_use" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="easy_use" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="easy_use" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="easy_use" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="easy_use" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="easy_use" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="easy_use" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="accurate"><h6>...accurate?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="accurate" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="accurate" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="accurate" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="accurate" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="accurate" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="accurate" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="accurate" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="use_again"><h6>...something you would use again?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="use_again" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="use_again" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="use_again" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="use_again" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="use_again" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="use_again" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="use_again" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
+            <label for="recommend"><h6>...something you would recommend?</h6></label>
+          </div>
+          <div class="input-group radio-group col-xs-12 col-md-7">
+              <label><input type="radio" name="recommend" value="1" required/>&nbsp;&nbsp;1</label>
+              <label><input type="radio" name="recommend" value="2" required/>&nbsp;&nbsp;2</label>
+              <label><input type="radio" name="recommend" value="3" required/>&nbsp;&nbsp;3</label>
+              <label><input type="radio" name="recommend" value="4" required/>&nbsp;&nbsp;4</label>
+              <label><input type="radio" name="recommend" value="5" required/>&nbsp;&nbsp;5</label>
+              <label><input type="radio" name="recommend" value="6" required/>&nbsp;&nbsp;6</label>
+              <label><input type="radio" name="recommend" value="7" required/>&nbsp;&nbsp;7</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label for="most_help"><h4>What feature did you find most helpful?</h4></label>
+          </div>
+          <div class="form-group col-xs-12">
+              <textarea class="form-control" rows="3" name="mot_help"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label for="weakness"><h4>What were the biggest weaknesses/limitations?</h4></label>
+          </div>
+          <div class="form-group col-xs-12">
+              <textarea class="form-control" rows="3" name="weakness"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label for="improve"><h4>How would you improve the feedback from SkyNote?</h4></label>
+          </div>
+          <div class="form-group col-xs-12">
+              <textarea class="form-control" rows="3" name="improve"></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label for="other"><h4>Do you have any additional comments?</h4></label>
+          </div>
+          <div class="form-group col-xs-12">
+              <textarea class="form-control" rows="3" name="other"></textarea>
+          </div>
+        </div>
+        <br>
+        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+      </form>
+  </div> <!-- col -->
+</div> <!-- row -->
