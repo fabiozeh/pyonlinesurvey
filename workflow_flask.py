@@ -228,37 +228,53 @@ def xp_steps():
         return render_template('session_error.html')
 
     if step == 1:
-        return render_template('prerec.html', exercise=piece_name(exercise[0][0]), mode=exercise[0][2], pct=step / 18)
+        return render_template('prerec.html', exercise=piece_name(exercise[0][0]),
+                               pct=step / 18)
     elif step == 2:
-        return render_template('refpractice.html', exercise=exercise[0][0], mode=exercise[0][2], pct=step / 18)
+        return render_template('refpractice.html', exercise=piece_name(exercise[0][0]),
+                               mode=exercise[0][2], pct=step / 18)
     elif step == 3:
-        return render_template('reftiming.html', exercise=exercise[0][0], mode=exercise[0][2], pct=step / 18)
+        return render_template('reftiming.html', exercise=piece_name(exercise[0][0]),
+                               audio=exercise[0][0], mode=exercise[0][2], pct=step / 18)
     elif step == 4:
-        return render_template('postrec.html', exercise=exercise[0][0], mode=exercise[0][2], pct=step / 18)
+        return render_template('postrec.html', exercise=piece_name(exercise[0][0]),
+                               pct=step / 18)
     elif step == 5:
-        return render_template('prerec.html', exercise=exercise[0][1], mode=exercise[0][2], pct=step / 18)
+        return render_template('prerec.html', exercise=piece_name(exercise[0][1]),
+                               pct=step / 18)
     elif step == 6:
-        return render_template('refpractice.html', exercise=exercise[0][1], mode=exercise[0][2], pct=step / 18)
+        return render_template('refpractice.html', exercise=piece_name(exercise[0][1]),
+                               mode=exercise[0][2], pct=step / 18)
     elif step == 7:
-        return render_template('reftiming.html', exercise=exercise[0][1], mode=exercise[0][2], pct=step / 18)
+        return render_template('reftiming.html', exercise=piece_name(exercise[0][1]),
+                               audio=exercise[0][1], mode=exercise[0][2], pct=step / 18)
     elif step == 8:
-        return render_template('postrec.html', exercise=exercise[0][1], mode=exercise[0][2], pct=step / 18)
+        return render_template('postrec.html', exercise=piece_name(exercise[0][1]),
+                               pct=step / 18)
     elif step == 9:
-        return render_template('prerec.html', exercise=exercise[1][0], mode=exercise[1][2], pct=step / 18)
+        return render_template('prerec.html', exercise=piece_name(exercise[1][0]),
+                               pct=step / 18)
     elif step == 10:
-        return render_template('refpractice.html', exercise=exercise[1][0], mode=exercise[1][2], pct=step / 18)
+        return render_template('refpractice.html', exercise=piece_name(exercise[1][0]),
+                               mode=exercise[1][2], pct=step / 18)
     elif step == 11:
-        return render_template('reftiming.html', exercise=exercise[1][0], mode=exercise[1][2], pct=step / 18)
+        return render_template('reftiming.html', exercise=piece_name(exercise[1][0]),
+                               audio=exercise[1][0], mode=exercise[1][2], pct=step / 18)
     elif step == 12:
-        return render_template('postrec.html', exercise=exercise[1][0], mode=exercise[1][2], pct=step / 18)
+        return render_template('postrec.html', exercise=piece_name(exercise[1][0]),
+                               pct=step / 18)
     elif step == 13:
-        return render_template('prerec.html', exercise=exercise[1][1], mode=exercise[1][2], pct=step / 18)
+        return render_template('prerec.html', exercise=piece_name(exercise[1][1]),
+                               pct=step / 18)
     elif step == 14:
-        return render_template('refpractice.html', exercise=exercise[1][1], mode=exercise[1][2], pct=step / 18)
+        return render_template('refpractice.html', exercise=piece_name(exercise[1][1]),
+                               mode=exercise[1][2], pct=step / 18)
     elif step == 15:
-        return render_template('reftiming.html', exercise=exercise[1][1], mode=exercise[1][2], pct=step / 18)
+        return render_template('reftiming.html', exercise=piece_name(exercise[1][1]),
+                               audio=exercise[1][1], mode=exercise[1][2], pct=step / 18)
     elif step == 16:
-        return render_template('postrec.html', exercise=exercise[1][1], mode=exercise[1][2], pct=step / 18)
+        return render_template('postrec.html', exercise=exercise[1][1],
+                               pct=step / 18)
     elif step == 17:
         return render_template('skynoteeval.html', pct=step / 18)
     else:
