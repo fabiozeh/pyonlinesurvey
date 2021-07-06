@@ -273,7 +273,7 @@ def xp_steps():
         return render_template('reftiming.html', exercise=piece_name(exercise[1][1]),
                                audio=exercise[1][1], mode=exercise[1][2], pct=step / 18)
     elif step == 16:
-        return render_template('postrec.html', exercise=exercise[1][1],
+        return render_template('postrec.html', exercise=piece_name(exercise[1][1]),
                                pct=step / 18)
     elif step == 17:
         return render_template('skynoteeval.html', pct=step / 18)
