@@ -10,9 +10,9 @@
         To assist you in this task, you will have the features of SkyNote available. Please ask the researcher to teach you how to operate the software before beginning.
       </p>
       {% endif %}
-      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
+      <form action="{{ url_for('xp_data') }}" onsubmit="fetch_step(event)" id="survey-form" class="text-left" method="POST">
         <input type="hidden" name="ok" value="ok" />
-        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+        <button type="submit" class="btn btn-primary">Next</button>
       </form>
   </div> <!-- col -->
 </div> <!-- row -->

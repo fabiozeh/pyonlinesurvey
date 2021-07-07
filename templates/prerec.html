@@ -5,7 +5,7 @@
       <p class="text-left">
           Please access the score entitled <strong>{{ exercise }}</strong>. You may practice it to familiarize yourself with the piece, and once you are satisfied, record yourself playing it. After recording, please answer the questions rating from 1 (low) to 7 (high) your...
       </p>
-      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
+      <form action="{{ url_for('xp_data') }}" onsubmit="fetch_step(event)" id="survey-form" class="text-left" method="POST">
         <div class="row">
           <div class="col-xs-12 col-md-5">
             <label for="pre_quality"><h4>Performance Quality</h4></label>
@@ -133,7 +133,7 @@
           </div>
         </div>
         <br>
-        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+        <button type="submit" class="btn btn-primary">Next</button>
       </form>
   </div> <!-- col -->
 </div> <!-- row -->

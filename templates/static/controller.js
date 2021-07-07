@@ -24,7 +24,8 @@ function take_part() {
 	form.elements.forEach(element => element.disabled = true);
 }
 
-function fetch_step() {
+function fetch_step(event) {
+	event.preventDefault();
 	const main_div = document.getElementById('main_div');
 	const form = document.getElementById('survey-form');
 
@@ -51,4 +52,5 @@ function fetch_step() {
 		req.send();
 		// loading element?
 	}
+	return false;
 }

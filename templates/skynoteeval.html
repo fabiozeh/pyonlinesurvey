@@ -5,7 +5,7 @@
       <p class="text-left">
           As a final contribution, we would like to know more about your opinion regarding SkyNote as a practice tool.
       </p>
-      <form action="{{ url_for('xp_data') }}" id="survey-form" class="text-left" method="POST">
+      <form action="{{ url_for('xp_data') }}" onsubmit="fetch_step(event)" id="survey-form" class="text-left" method="POST">
         <div class="row">
           <div class="col-xs-12">
             <h4> To what degree did SkyNote... </h4>
@@ -175,7 +175,7 @@
           </div>
         </div>
         <br>
-        <button type="button" onclick="fetch_step()" class="btn btn-primary">Next</button>
+        <button type="submit" class="btn btn-primary">Next</button>
       </form>
   </div> <!-- col -->
 </div> <!-- row -->
