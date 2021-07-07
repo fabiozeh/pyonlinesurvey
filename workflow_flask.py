@@ -327,12 +327,12 @@ def xp_data():
     elif step == 2 or step == 6 or step == 10 or step == 14:
         # commit start time
         rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
-        rec.time_piece_start = datetime.utcnow().timestamp()
+        rec.time_piece_start = int(datetime.utcnow().timestamp())
         db.session.commit()
     elif step == 3 or step == 7 or step == 11 or step == 15:
         # commit stop time
         rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
-        rec.time_piece_end = datetime.utcnow().timestamp()
+        rec.time_piece_end = int(datetime.utcnow().timestamp())
         db.session.commit()
     elif step == 4 or step == 8 or step == 12 or step == 16:
         # commit post test
