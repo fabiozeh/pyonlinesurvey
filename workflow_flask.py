@@ -240,28 +240,28 @@ def xp_steps():
         return render_template('postrec.html', exercise=piece_name(exercise[0][0]),
                                pct=step / 18)
     elif step == 5:
-        return render_template('prerec.html', exercise=piece_name(exercise[0][1]),
-                               pct=step / 18)
-    elif step == 6:
-        return render_template('refpractice.html', exercise=piece_name(exercise[0][1]),
-                               mode=exercise[0][2], pct=step / 18)
-    elif step == 7:
-        return render_template('reftiming.html', exercise=piece_name(exercise[0][1]),
-                               audio=exercise[0][1], mode=exercise[0][2], pct=step / 18)
-    elif step == 8:
-        return render_template('postrec.html', exercise=piece_name(exercise[0][1]),
-                               pct=step / 18)
-    elif step == 9:
         return render_template('prerec.html', exercise=piece_name(exercise[1][0]),
                                pct=step / 18)
-    elif step == 10:
+    elif step == 6:
         return render_template('refpractice.html', exercise=piece_name(exercise[1][0]),
                                mode=exercise[1][2], pct=step / 18)
-    elif step == 11:
+    elif step == 7:
         return render_template('reftiming.html', exercise=piece_name(exercise[1][0]),
                                audio=exercise[1][0], mode=exercise[1][2], pct=step / 18)
-    elif step == 12:
+    elif step == 8:
         return render_template('postrec.html', exercise=piece_name(exercise[1][0]),
+                               pct=step / 18)
+    elif step == 9:
+        return render_template('prerec.html', exercise=piece_name(exercise[0][1]),
+                               pct=step / 18)
+    elif step == 10:
+        return render_template('refpractice.html', exercise=piece_name(exercise[0][1]),
+                               mode=exercise[0][2], pct=step / 18)
+    elif step == 11:
+        return render_template('reftiming.html', exercise=piece_name(exercise[0][1]),
+                               audio=exercise[0][1], mode=exercise[0][2], pct=step / 18)
+    elif step == 12:
+        return render_template('postrec.html', exercise=piece_name(exercise[0][1]),
                                pct=step / 18)
     elif step == 13:
         return render_template('prerec.html', exercise=piece_name(exercise[1][1]),
@@ -311,12 +311,12 @@ def xp_data():
             rec.piece_id = exercise[0][0]
             rec.piece_index = 0
         elif step == 5:
-            rec.with_tech = exercise[0][2] == "tech"
-            rec.piece_id = exercise[0][1]
-            rec.piece_index = 1
-        elif step == 9:
             rec.with_tech = exercise[1][2] == "tech"
             rec.piece_id = exercise[1][0]
+            rec.piece_index = 1
+        elif step == 9:
+            rec.with_tech = exercise[0][2] == "tech"
+            rec.piece_id = exercise[0][1]
             rec.piece_index = 2
         elif step == 13:
             rec.with_tech = exercise[1][2] == "tech"
@@ -327,12 +327,12 @@ def xp_data():
     elif step == 2 or step == 6 or step == 10 or step == 14:
         # commit start time
         rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
-        rec.time_piece_start = int(datetime.utcnow().timestamp())
+        rec.time_piece_start = float(datetime.utcnow().timestamp())
         db.session.commit()
     elif step == 3 or step == 7 or step == 11 or step == 15:
         # commit stop time
         rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
-        rec.time_piece_end = int(datetime.utcnow().timestamp())
+        rec.time_piece_end = float(datetime.utcnow().timestamp())
         db.session.commit()
     elif step == 4 or step == 8 or step == 12 or step == 16:
         # commit post test
@@ -374,7 +374,7 @@ def xp_data():
         surv.weakness = request.form["weakness"]
         surv.improve = request.form["improve"]
         surv.other = request.form["other"]
-
+        db.session.commit()
     session['step'] += 1
     return redirect(url_for('xp_steps'))
 
