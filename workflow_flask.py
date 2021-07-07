@@ -32,8 +32,8 @@ class Rec(db.Model):
     with_tech = db.Column(db.Integer)
     piece_id = db.Column(db.String(100))
     piece_index = db.Column(db.Integer)
-    time_piece_start = db.Column(db.Float)
-    time_piece_end = db.Column(db.Float)
+    time_piece_start = db.Column(db.String(100))
+    time_piece_end = db.Column(db.String(100))
 
     pre_confidence = db.Column(db.Integer)
     pre_quality = db.Column(db.Integer)
@@ -327,12 +327,12 @@ def xp_data():
     elif step == 2 or step == 6 or step == 10 or step == 14:
         # commit start time
         rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
-        rec.time_piece_start = float(datetime.utcnow().timestamp())
+        rec.time_piece_start = datetime.utcnow().isoformat()
         db.session.commit()
     elif step == 3 or step == 7 or step == 11 or step == 15:
         # commit stop time
         rec = Rec.query.filter_by(xp_id=xp_id, piece_index=((step - 1) // 4)).first()
-        rec.time_piece_end = float(datetime.utcnow().timestamp())
+        rec.time_piece_end = datetime.utcnow().isoformat()
         db.session.commit()
     elif step == 4 or step == 8 or step == 12 or step == 16:
         # commit post test
@@ -350,6 +350,7 @@ def xp_data():
         rec.post_room = request.form["post_room"]
         rec.post_mental = request.form["post_mental"]
         rec.post_physical = request.form["post_physical"]
+        rec.comment = request.form["comment"]
         db.session.commit()
     elif step == 17:
         # commit skynote eval
@@ -374,6 +375,7 @@ def xp_data():
         surv.weakness = request.form["weakness"]
         surv.improve = request.form["improve"]
         surv.other = request.form["other"]
+        db.session.add(surv)
         db.session.commit()
     session['step'] += 1
     return redirect(url_for('xp_steps'))
