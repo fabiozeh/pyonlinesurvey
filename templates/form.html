@@ -24,7 +24,7 @@
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only">{{locale['navigation']}}</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -36,7 +36,7 @@
 
       <div class="collapse navbar-collapse" id="navbar-collapse">
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="/es/" title="">Español</a></li>
+          <li><a href="{{locale['lang_url']}}" title="">{{locale['lang_name']}}</a></li>
           <!-- <li>
             <p>
               <a href="#take_part" class="btn btn-default navbar-btn" title="">Take Part</a>
@@ -51,68 +51,67 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
-            <h2>Participant Information</h2>
+            <h2>{{locale['row1_h2']}}</h2>
             <p class="text-left">
-                Please complete the following information:
+                {{locale['row1_p']}}
             </p>
             <form action="{{ url_for('form_submit') }}"" class="text-left" method="POST">
-                <label for="age"><h4>1. Age: </h4></label>
+                <label for="age"><h4>{{locale['label1']}}</h4></label>
                 <input class="form-control" type="number" name="age" min="18" max="120" required/><br />
-                <label for="gender"><h4>2. Gender: </h4></label>
+                <label for="gender"><h4>{{locale['label2']}}</h4></label>
                 <div class="input-group">
-                    <label><input type="radio" name="gender" value="u" required/>&nbsp;&nbsp;Unspecified</label><br/>
-                    <label><input type="radio" name="gender" value="m" required/>&nbsp;&nbsp;Male</label><br/>
-                    <label><input type="radio" name="gender" value="f" required/>&nbsp;&nbsp;Female</label><br/>
+                    <label><input type="radio" name="gender" value="u" required/>&nbsp;&nbsp;{{locale['label2_1']}}</label><br/>
+                    <label><input type="radio" name="gender" value="m" required/>&nbsp;&nbsp;{{locale['label2_2']}}</label><br/>
+                    <label><input type="radio" name="gender" value="f" required/>&nbsp;&nbsp;{{locale['label2_3']}}</label><br/>
                 </div>
-                <label for="years_study"><h4>3. For how many years have you studied violin? </h4></label>
+                <label for="years_study"><h4>{{locale['label3']}}</h4></label>
                 <input class="form-control" type="number" name="years_study" min="0" max="100" required/><br />
-                <label for="hours_practice"><h4>4. For approximately how many hours do you practice on a typical day?</h4></label>
+                <label for="hours_practice"><h4>{{locale['label4']}}</h4></label>
                 <input class="form-control" type="number" name="hours_practice" min="0" max="24" required/><br/>
-                <label for="one_to_one_lessons"><h4>5. Have you taken one-to-one violin lessons?</h4></label><br/>
+                <label for="one_to_one_lessons"><h4>{{locale['label5']}}</h4></label><br/>
                 <div class="input-group">
-                    <label><input type="radio" name="one_to_one_lessons" value="y" required/>&nbsp;&nbsp;Yes</label><br/>
-                    <label><input type="radio" name="one_to_one_lessons" value="n" required/>&nbsp;&nbsp;No</label><br/>
+                    <label><input type="radio" name="one_to_one_lessons" value="y" required/>&nbsp;&nbsp;{{locale['yes']}}</label><br/>
+                    <label><input type="radio" name="one_to_one_lessons" value="n" required/>&nbsp;&nbsp;{{locale['no']}}</label><br/>
                 </div>
-                <label for="if_lessons_years"><h4>If yes, how many years?</h4></label>
+                <label for="if_lessons_years"><h4>{{locale['label5_b']}}</h4></label>
                 <input class="form-control" type="number" name="if_lessons_years" min="0" max="100" value="0" required/><br />
-                <label for="musical_genre"><h4>6. What is the primary musical genre you play?</h4></label><br/>
+                <label for="musical_genre"><h4>{{locale['label6']}}</h4></label><br/>
                 <div class="input-group">
-                    <label><input type="radio" name="musical_genre" value="classical" required/>&nbsp;&nbsp;Classical</label><br/>
-                    <label><input type="radio" name="musical_genre" value="jazz" required/>&nbsp;&nbsp;Jazz</label><br />
-                    <label><input type="radio" name="musical_genre" value="pop" required/>&nbsp;&nbsp;Pop</label><br/>
-                    <label><input type="radio" name="musical_genre" value="rock" required/>&nbsp;&nbsp;Rock</label><br />
-                    <label><input type="radio" name="musical_genre" value="electronic" required/>&nbsp;&nbsp;Dance/Electronic</label><br/>
-                    <label><input type="radio" name="musical_genre" value="rap" required/>&nbsp;&nbsp;Rap/Hip-Hop</label><br/>
-                    <label><input type="radio" name="musical_genre" value="traditional" required/>&nbsp;&nbsp;Traditional/Folk</label><br/>
-                    <label><input type="radio" name="musical_genre" value="other" required/>&nbsp;&nbsp;Other</label><br />
+                    <label><input type="radio" name="musical_genre" value="classical" required/>&nbsp;&nbsp;{{locale['label6_1']}}</label><br/>
+                    <label><input type="radio" name="musical_genre" value="jazz" required/>&nbsp;&nbsp;{{locale['label6_2']}}</label><br />
+                    <label><input type="radio" name="musical_genre" value="pop" required/>&nbsp;&nbsp;{{locale['label6_3']}}</label><br/>
+                    <label><input type="radio" name="musical_genre" value="rock" required/>&nbsp;&nbsp;{{locale['label6_4']}}</label><br />
+                    <label><input type="radio" name="musical_genre" value="electronic" required/>&nbsp;&nbsp;{{locale['label6_5']}}</label><br/>
+                    <label><input type="radio" name="musical_genre" value="rap" required/>&nbsp;&nbsp;{{locale['label6_6']}}</label><br/>
+                    <label><input type="radio" name="musical_genre" value="traditional" required/>&nbsp;&nbsp;{{locale['label6_7']}}</label><br/>
+                    <label><input type="radio" name="musical_genre" value="other" required/>&nbsp;&nbsp;{{locale['label6_8']}}</label><br />
                 </div>
-                <label for="musical_activity"><h4>7. Which option best describes your musical activity?</h4></label><br>
+                <label for="musical_activity"><h4>{{locale['label7']}}</h4></label><br>
                 <div class="form-group">
-                    <label><input type="radio" name="musical_activity" value="amateur" required/>&nbsp;&nbsp;Amateur</label><br/>
-                    <label><input type="radio" name="musical_activity" value="student_school" required/>&nbsp;&nbsp;Student: secondary school</label><br />
-                    <label><input type="radio" name="musical_activity" value="student_undergrad" required/>&nbsp;&nbsp;Student: undergraduate</label><br/>
-                    <label><input type="radio" name="musical_activity" value="student_postgrad" required/>&nbsp;&nbsp;Student: postgraduate</label><br />
-                    <label><input type="radio" name="musical_activity" value="professional" required/>&nbsp;&nbsp;Professional</label><br/>
+                    <label><input type="radio" name="musical_activity" value="amateur" required/>&nbsp;&nbsp;{{locale['label7_1']}}</label><br/>
+                    <label><input type="radio" name="musical_activity" value="student_conservatory" required/>&nbsp;&nbsp;{{locale['label7_2']}}</label><br />
+                    <label><input type="radio" name="musical_activity" value="student_university" required/>&nbsp;&nbsp;{{locale['label7_3']}}</label><br/>
+                    <label><input type="radio" name="musical_activity" value="professional" required/>&nbsp;&nbsp;{{locale['label7_4']}}</label><br />
                 </div>
-                <label for="plays_reading"><h4>8. How often do you play while reading from a score?</h4></label><br/>
+                <label for="plays_reading"><h4>{{locale['label8']}}</h4></label><br/>
                 <div class="form-group">
-                    <label><input type="radio" name="plays_reading" value="1" required/>&nbsp;&nbsp;Never/Hardly ever</label><br>
-                    <label><input type="radio" name="plays_reading" value="2" required/>&nbsp;&nbsp;Seldom </label><br/>
-                    <label><input type="radio" name="plays_reading" value="3" required/>&nbsp;&nbsp;Sometimes</label><br/>
-                    <label><input type="radio" name="plays_reading" value="4" required/>&nbsp;&nbsp;Very often</label><br />
-                    <label><input type="radio" name="plays_reading" value="5" required/>&nbsp;&nbsp;Nearly always/Always</label><br />
+                    <label><input type="radio" name="plays_reading" value="1" required/>&nbsp;&nbsp;{{locale['freq1']}}</label><br>
+                    <label><input type="radio" name="plays_reading" value="2" required/>&nbsp;&nbsp;{{locale['freq2']}}</label><br/>
+                    <label><input type="radio" name="plays_reading" value="3" required/>&nbsp;&nbsp;{{locale['freq3']}}</label><br/>
+                    <label><input type="radio" name="plays_reading" value="4" required/>&nbsp;&nbsp;{{locale['freq4']}}</label><br />
+                    <label><input type="radio" name="plays_reading" value="5" required/>&nbsp;&nbsp;{{locale['freq5']}}</label><br />
                 </div>
                 <br>
-                <label for="practice_exp"><h4>9. How often do you practice your expressive performance skills?</h4></label><br>
+                <label for="practice_exp"><h4>{{locale['label9']}}</h4></label><br>
                 <div class="form-group">
-                    <label><input type="radio" name="practice_exp" value="1" required/>&nbsp;&nbsp;Never/Hardly ever</label><br>
-                    <label><input type="radio" name="practice_exp" value="2" required/>&nbsp;&nbsp;Seldom</label><br/>
-                    <label><input type="radio" name="practice_exp" value="3" required/>&nbsp;&nbsp;Sometimes</label><br/>
-                    <label><input type="radio" name="practice_exp" value="4" required/>&nbsp;&nbsp;Very often</label><br />
-                    <label><input type="radio" name="practice_exp" value="5" required/>&nbsp;&nbsp;Nearly always/Always</label><br />
+                    <label><input type="radio" name="practice_exp" value="1" required/>&nbsp;&nbsp;{{locale['freq1']}}</label><br>
+                    <label><input type="radio" name="practice_exp" value="2" required/>&nbsp;&nbsp;{{locale['freq2']}}</label><br/>
+                    <label><input type="radio" name="practice_exp" value="3" required/>&nbsp;&nbsp;{{locale['freq3']}}</label><br/>
+                    <label><input type="radio" name="practice_exp" value="4" required/>&nbsp;&nbsp;{{locale['freq4']}}</label><br />
+                    <label><input type="radio" name="practice_exp" value="5" required/>&nbsp;&nbsp;{{locale['freq5']}}</label><br />
                 </div>
                 <br>
-                <input type="submit" class="btn btn-primary" value="Next">
+                <input type="submit" class="btn btn-primary" value="{{locale['submitbtn']}}">
             </form>
         </div> <!-- col -->
       </div> <!-- row -->
