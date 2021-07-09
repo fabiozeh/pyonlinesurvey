@@ -151,12 +151,13 @@ def contact():
 
 @app.route('/form')
 def form():
-    return render_template("form.html", locale=form_en)
+    return render_template("form.html", locale=locale.form_en)
 
 
 @app.route('/es/form')
-def form_spanish():
-    return render_template("form.html", locale=form_es)
+def form_es():
+    return render_template("form.html", locale=locale.form_es)
+
 
 @app.route('/form-submit', methods=["GET", "POST"])
 def form_submit():
