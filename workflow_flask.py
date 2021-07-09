@@ -6,6 +6,8 @@ from string import ascii_uppercase, digits
 from datetime import datetime
 import MySQLdb as DB
 
+import locale
+
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
@@ -149,8 +151,12 @@ def contact():
 
 @app.route('/form')
 def form():
-    return render_template("form.html")
+    return render_template("form.html", locale=form_en)
 
+
+@app.route('/es/form')
+def form_spanish():
+    return render_template("form.html", locale=form_es)
 
 @app.route('/form-submit', methods=["GET", "POST"])
 def form_submit():
