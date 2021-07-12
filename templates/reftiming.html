@@ -1,19 +1,19 @@
 
 <div class="row reveal-content">
   <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
-      <h2>Imitation Exercise - Practice</h2>
+      <h2>{{locale['row1_h2']}}</h2>
       <p class="text-left">
-          You may now begin practicing the imitation exercise for <strong>{{ exercise }}</strong>. When you are satisfied with your performance, move on to the next step.
+          {{locale['row1_p1']}}<strong>{{ exercise }}</strong>{{locale['row1_p2']}}
       </p>
       {% if mode != "tech" %}
       <div style="text-align:center">
           <audio src="/static/{{audio}}.mp3?raw=1" controls style="width: 400px; background-color:#525659"></audio><br>
-          Reference recording <br>
+          {{locale['audio_label']}}<br>
       </div>
       {% endif %}
       <form action="{{ url_for('xp_data') }}" onsubmit="fetch_step(event)" id="survey-form" class="text-left" method="POST">
         <input type="hidden" name="ok" value="ok" />
-        <button type="submit" class="btn btn-primary">Next</button>
+        <button type="submit" class="btn btn-primary">{{locale['submitbtn']}}</button>
       </form>
   </div> <!-- col -->
 </div> <!-- row -->

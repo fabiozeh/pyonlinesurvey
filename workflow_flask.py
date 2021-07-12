@@ -151,12 +151,14 @@ def contact():
 
 @app.route('/form')
 def form():
-    return render_template("form.html", locale=locale_strings.form_en)
+    session["lang"] = 'en'
+    return render_template("form.html", locale=locale_strings.form['en'])
 
 
 @app.route('/es/form')
 def form_es():
-    return render_template("form.html", locale=locale_strings.form_es)
+    session["lang"] = 'es'
+    return render_template("form.html", locale=locale_strings.form['es'])
 
 
 @app.route('/form-submit', methods=["GET", "POST"])
@@ -206,7 +208,12 @@ def form_submit():
 
 @app.route('/experiment')
 def experiment():
-    return render_template("experiment.html")
+    try:
+        lang = session['lang']
+    except KeyError:
+        lang = 'en'
+        session['lang'] = lang
+    return render_template("experiment.html", locale=locale_strings.experiment[lang])
 
 
 def piece_name(identifier):
@@ -231,61 +238,71 @@ def xp_steps():
     try:
         step = session['step']
         exercise = session['exercise']
+        lang = session['lang']
     except KeyError:
         return render_template('session_error.html')
 
     if step == 1:
         return render_template('prerec.html', exercise=piece_name(exercise[0][0]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.prerec[lang])
     elif step == 2:
         return render_template('refpractice.html', exercise=piece_name(exercise[0][0]),
-                               mode=exercise[0][2], pct=step / 18)
+                               mode=exercise[0][2], pct=step / 18,
+                               locale=locale_strings.refpractice[lang])
     elif step == 3:
         return render_template('reftiming.html', exercise=piece_name(exercise[0][0]),
-                               audio=exercise[0][0], mode=exercise[0][2], pct=step / 18)
+                               audio=exercise[0][0], mode=exercise[0][2], pct=step / 18,
+                               locale=locale_strings.reftiming[lang])
     elif step == 4:
         return render_template('postrec.html', exercise=piece_name(exercise[0][0]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.postrec[lang])
     elif step == 5:
         return render_template('prerec.html', exercise=piece_name(exercise[1][0]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.prerec[lang])
     elif step == 6:
         return render_template('refpractice.html', exercise=piece_name(exercise[1][0]),
-                               mode=exercise[1][2], pct=step / 18)
+                               mode=exercise[1][2], pct=step / 18,
+                               locale=locale_strings.refpractice[lang])
     elif step == 7:
         return render_template('reftiming.html', exercise=piece_name(exercise[1][0]),
-                               audio=exercise[1][0], mode=exercise[1][2], pct=step / 18)
+                               audio=exercise[1][0], mode=exercise[1][2], pct=step / 18,
+                               locale=locale_strings.reftiming[lang])
     elif step == 8:
         return render_template('postrec.html', exercise=piece_name(exercise[1][0]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.postrec[lang])
     elif step == 9:
         return render_template('prerec.html', exercise=piece_name(exercise[0][1]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.prerec[lang])
     elif step == 10:
         return render_template('refpractice.html', exercise=piece_name(exercise[0][1]),
-                               mode=exercise[0][2], pct=step / 18)
+                               mode=exercise[0][2], pct=step / 18,
+                               locale=locale_strings.refpractice[lang])
     elif step == 11:
         return render_template('reftiming.html', exercise=piece_name(exercise[0][1]),
-                               audio=exercise[0][1], mode=exercise[0][2], pct=step / 18)
+                               audio=exercise[0][1], mode=exercise[0][2], pct=step / 18,
+                               locale=locale_strings.reftiming[lang])
     elif step == 12:
         return render_template('postrec.html', exercise=piece_name(exercise[0][1]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.postrec[lang])
     elif step == 13:
         return render_template('prerec.html', exercise=piece_name(exercise[1][1]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.prerec[lang])
     elif step == 14:
         return render_template('refpractice.html', exercise=piece_name(exercise[1][1]),
-                               mode=exercise[1][2], pct=step / 18)
+                               mode=exercise[1][2], pct=step / 18,
+                               locale=locale_strings.refpractice[lang])
     elif step == 15:
         return render_template('reftiming.html', exercise=piece_name(exercise[1][1]),
-                               audio=exercise[1][1], mode=exercise[1][2], pct=step / 18)
+                               audio=exercise[1][1], mode=exercise[1][2], pct=step / 18,
+                               locale=locale_strings.reftiming[lang])
     elif step == 16:
         return render_template('postrec.html', exercise=piece_name(exercise[1][1]),
-                               pct=step / 18)
+                               pct=step / 18, locale=locale_strings.postrec[lang])
     elif step == 17:
-        return render_template('skynoteeval.html', pct=step / 18)
+        return render_template('skynoteeval.html', pct=step / 18,
+                               locale=locale_strings.skynoteeval[lang])
     else:
-        return render_template('end_page.html', pct=step / 18)
+        return render_template('end_page.html', pct=step / 18, locale=locale_strings.end_page[lang])
 
 
 @app.route('/xp-data', methods=["GET", "POST"])
@@ -388,6 +405,13 @@ def xp_data():
     return redirect(url_for('xp_steps'))
 
 
+@app.route('/lang')
+def lang():
+    request.args.get
+    session['lang'] = request.form["lang"]
+    return redirect(url_for('xp_steps'))
+
+
 #############################################
 @app.route('/clearsession')
 def clearsession():
@@ -411,6 +435,7 @@ def dummy_session():
 
     session['step'] = 1
     session['xp_id'] = xp.id
+    session['lang'] = 'en'
 
     # create sound file list
     piece = ["twinkle", "manha", "cabeza", "silent"]

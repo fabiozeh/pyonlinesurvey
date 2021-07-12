@@ -1,19 +1,19 @@
 
 <div class="row reveal-content">
   <div class="col-xs-12 col-md-8 col-md-offset-2 text-center">
-      <h2>SkyNote Evaluation</h2>
+      <h2>{{locale['row1_h2']}}</h2>
       <p class="text-left">
-          As a final contribution, we would like to know more about your opinion regarding SkyNote as a practice tool.
+          {{locale['row1_p']}}
       </p>
       <form action="{{ url_for('xp_data') }}" onsubmit="fetch_step(event)" id="survey-form" class="text-left" method="POST">
         <div class="row">
           <div class="col-xs-12">
-            <h4> To what degree did SkyNote... </h4>
+            <h4> {{locale['h4_1']}} </h4>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="learn_quickly"><h6>...help you learn more quickly?</h6></label>
+            <label for="learn_quickly"><h6>{{locale['label1']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="learn_quickly" value="1" required/>&nbsp;&nbsp;1</label>
@@ -27,7 +27,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="performance"><h6>...improve your performance?</h6></label>
+            <label for="performance"><h6>{{locale['label2']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="performance" value="1" required/>&nbsp;&nbsp;1</label>
@@ -41,7 +41,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="easier_practice"><h6>...make practicing easier?</h6></label>
+            <label for="easier_practice"><h6>{{locale['label3']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="easier_practice" value="1" required/>&nbsp;&nbsp;1</label>
@@ -55,7 +55,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="what_want"><h6>...do what you wanted it to do?</h6></label>
+            <label for="what_want"><h6>{{locale['label4']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="what_want" value="1" required/>&nbsp;&nbsp;1</label>
@@ -69,12 +69,12 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <h4> To what degree was SkyNote... </h4>
+            <h4> {{locale['h4_2']}} </h4>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="useful"><h6>...useful?</h6></label>
+            <label for="useful"><h6>{{locale['label5']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="useful" value="1" required/>&nbsp;&nbsp;1</label>
@@ -88,7 +88,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="easy_use"><h6>...easy to use?</h6></label>
+            <label for="easy_use"><h6>{{locale['label6']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="easy_use" value="1" required/>&nbsp;&nbsp;1</label>
@@ -102,7 +102,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="accurate"><h6>...accurate?</h6></label>
+            <label for="accurate"><h6>{{locale['label7']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="accurate" value="1" required/>&nbsp;&nbsp;1</label>
@@ -116,7 +116,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="use_again"><h6>...something you would use again?</h6></label>
+            <label for="use_again"><h6>{{locale['label8']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="use_again" value="1" required/>&nbsp;&nbsp;1</label>
@@ -130,7 +130,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12 col-md-5">
-            <label for="recommend"><h6>...something you would recommend?</h6></label>
+            <label for="recommend"><h6>{{locale['label9']}}</h6></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">
               <label><input type="radio" name="recommend" value="1" required/>&nbsp;&nbsp;1</label>
@@ -144,7 +144,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label for="most_help"><h4>What feature did you find most helpful?</h4></label>
+            <label for="most_help"><h4>{{locale['h4_3']}}</h4></label>
           </div>
           <div class="form-group col-xs-12">
               <textarea class="form-control" rows="3" name="most_help"></textarea>
@@ -152,7 +152,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label for="weakness"><h4>What were the biggest weaknesses/limitations?</h4></label>
+            <label for="weakness"><h4>{{locale['h4_4']}}</h4></label>
           </div>
           <div class="form-group col-xs-12">
               <textarea class="form-control" rows="3" name="weakness"></textarea>
@@ -160,7 +160,7 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label for="improve"><h4>How would you improve the feedback from SkyNote?</h4></label>
+            <label for="improve"><h4>{{locale['h4_5']}}</h4></label>
           </div>
           <div class="form-group col-xs-12">
               <textarea class="form-control" rows="3" name="improve"></textarea>
@@ -168,14 +168,14 @@
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label for="other"><h4>Do you have any additional comments?</h4></label>
+            <label for="other"><h4>{{locale['h4_6']}}</h4></label>
           </div>
           <div class="form-group col-xs-12">
               <textarea class="form-control" rows="3" name="other"></textarea>
           </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Next</button>
+        <button type="submit" class="btn btn-primary">{{locale['submitbtn']}}</button>
       </form>
   </div> <!-- col -->
 </div> <!-- row -->
