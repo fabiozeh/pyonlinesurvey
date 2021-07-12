@@ -35,12 +35,12 @@ function fetch_step(event) {
     	if (this.readyState == 4){
     		if (this.status == 200) {
        			main_div.innerHTML = req.responseText
-       			window.scrollTo({ top: 0, behavior: 'smooth' });
        		}
        		else {
        			//same...
        			main_div.innerHTML = req.responseText
        		}
+       		window.scrollTo({ top: 0, behavior: 'smooth' });
     	}
 	};
 	if (form) {

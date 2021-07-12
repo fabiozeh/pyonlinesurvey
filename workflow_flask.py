@@ -407,8 +407,7 @@ def xp_data():
 
 @app.route('/lang')
 def lang():
-    request.args.get
-    session['lang'] = request.form["lang"]
+    session['lang'] = request.request.args.get("lang")
     return redirect(url_for('xp_steps'))
 
 
