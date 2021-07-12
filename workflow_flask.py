@@ -417,7 +417,7 @@ def clearsession():
     # Clear the session
     session.clear()
     # Redirect the xp to the main page
-    return render_template("end_page.html")
+    return render_template("end_page.html", locale=locale_strings.end_page['en'])
 
 
 @app.route('/dummysession')
