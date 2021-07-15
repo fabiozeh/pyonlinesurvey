@@ -235,6 +235,8 @@ def piece_name(identifier):
         return "Nuages"
     elif identifier == "salut":
         return "Salut d'Amour"
+    elif identifier == "meditation":
+        return "Méditation (Thaïs)"
     else:
         return identifier
 
