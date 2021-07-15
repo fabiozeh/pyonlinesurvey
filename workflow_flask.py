@@ -339,7 +339,7 @@ def xp_data():
         if step == 1:
             rec.with_tech = exercise[0][2] == "tech"
             if "change_to" in request.form:
-                exercise[0] = request.form["change_to"]
+                exercise[0][0] = request.form["change_to"]
             rec.piece_id = exercise[0][0]
             rec.piece_index = 0
         elif step == 5:
