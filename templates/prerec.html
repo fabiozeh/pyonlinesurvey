@@ -8,6 +8,20 @@
       <form action="{{ url_for('xp_data') }}" onsubmit="fetch_step(event)" id="survey-form" class="text-left" method="POST">
         <div class="row">
           <div class="col-xs-12 col-md-5">
+            <label for="change_to"><h4>{{locale['label0']}}</h4></label>
+          </div>
+          <select class="input-group radio-group" name="change_to">
+              <option value="Amin">{{locale['Amin']}}</option>
+              <option value="Gmaj">{{locale['Gmaj']}}</option>
+              <option value="greensleeves">Greensleeves</option>
+              <option value="manha">Manhã de Carnaval</option>
+              <option value="meditation">Méditation (Thaïs)</option>
+              <option value="nuages">Nuages</option>
+              <option value="twinkle">Twinkle Twinkle Little Star</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-md-5">
             <label for="pre_quality"><h4>{{locale['label1']}}</h4></label>
           </div>
           <div class="input-group radio-group col-xs-12 col-md-7">

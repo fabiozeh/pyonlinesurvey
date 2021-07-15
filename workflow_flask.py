@@ -332,18 +332,26 @@ def xp_data():
         rec.pre_improve = request.form["pre_improve"]
         if step == 1:
             rec.with_tech = exercise[0][2] == "tech"
+            if "change_to" in request.form:
+                exercise[0][0] = request.form["change_to"]
             rec.piece_id = exercise[0][0]
             rec.piece_index = 0
         elif step == 5:
             rec.with_tech = exercise[1][2] == "tech"
+            if "change_to" in request.form:
+                exercise[1][0] = request.form["change_to"]
             rec.piece_id = exercise[1][0]
             rec.piece_index = 1
         elif step == 9:
             rec.with_tech = exercise[0][2] == "tech"
+            if "change_to" in request.form:
+                exercise[0][1] = request.form["change_to"]
             rec.piece_id = exercise[0][1]
             rec.piece_index = 2
         elif step == 13:
             rec.with_tech = exercise[1][2] == "tech"
+            if "change_to" in request.form:
+                exercise[1][1] = request.form["change_to"]
             rec.piece_id = exercise[1][1]
             rec.piece_index = 3
         db.session.add(rec)
