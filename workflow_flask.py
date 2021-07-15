@@ -186,7 +186,7 @@ def form_submit():
     session['xp_id'] = xp.id
 
     # create sound file list
-    piece = ["twinkle", "manha", "cabeza", "silent"]
+    piece = ["twinkle", "manha", "greensleeves", "meditation"]
     # scale = ["Gmaj", "Amin"]  # no more scales
     mode = ["aural", "tech"]
 
@@ -198,9 +198,9 @@ def form_submit():
     # The order of exercises will be determined by the xp_id:
     # odd = aural first
     if xp.id % 2 == 0:
-        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), range(len(mode))))
+        session['exercise'] = list(map(lambda i: [piece[i], piece[i + 2], mode[i]], range(len(mode))))
     else:
-        session['exercise'] = list(map(lambda i: (piece[i], piece[i + 2], mode[i]), reversed(range(len(mode)))))
+        session['exercise'] = list(map(lambda i: [piece[i], piece[i + 2], mode[i]], reversed(range(len(mode)))))
 
     # And then redirect user to the main experiment
     return redirect(url_for('experiment'))
@@ -229,6 +229,12 @@ def piece_name(identifier):
         return "G Major Scale"
     elif identifier == "Amin":
         return "A Minor Scale"
+    elif identifier == "greensleeves":
+        return "Greensleeves"
+    elif identifier == "nuages":
+        return "Nuages"
+    elif identifier == "salut":
+        return "Salut d'Amour"
     else:
         return identifier
 
@@ -333,7 +339,7 @@ def xp_data():
         if step == 1:
             rec.with_tech = exercise[0][2] == "tech"
             if "change_to" in request.form:
-                exercise[0][0] = request.form["change_to"]
+                exercise[0] = request.form["change_to"]
             rec.piece_id = exercise[0][0]
             rec.piece_index = 0
         elif step == 5:
