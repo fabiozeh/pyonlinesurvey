@@ -184,7 +184,7 @@ postrec = {
         'label6': 'Tone Quality',
         'label7': 'Dynamic Control',
         'label8': 'Quality of Articulation',
-        'label9': 'Difference from the Previous Recording',
+        'label9': 'Difference from Previous Recording',
         'label10': 'Efficiency of Your Practice',
         'label11': 'Room for Improvement',
         'label12': 'Mental Effort Required for This Exercise',
