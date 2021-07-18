@@ -186,7 +186,7 @@ def form_submit():
     session['xp_id'] = xp.id
 
     # create sound file list
-    piece = ["twinkle", "manha", "greensleeves", "meditation"]
+    piece = ["twinkle", "manha", "greensleeves", "frere"]
     # scale = ["Gmaj", "Amin"]  # no more scales
     mode = ["aural", "tech"]
 
@@ -237,6 +237,8 @@ def piece_name(identifier):
         return "Salut d'Amour"
     elif identifier == "meditation":
         return "Méditation (Thaïs)"
+    elif identifier == "frere":
+        return "Frère Jacques"
     else:
         return identifier
 
